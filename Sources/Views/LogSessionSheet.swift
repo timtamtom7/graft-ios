@@ -213,6 +213,9 @@ struct LogSessionSheet: View {
         let success = DatabaseService.shared.saveSession(&session)
 
         if success {
+            Task { @MainActor in
+                WidgetDataManager.shared.refreshWidgetData()
+            }
             onSave()
             dismiss()
         } else {

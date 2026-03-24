@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
+    @State private var showExport: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -10,6 +11,41 @@ struct SettingsView: View {
 
                 ScrollView {
                     VStack(spacing: 16) {
+                        // Export Section
+                        LiquidGlassCard {
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text("Data")
+                                    .font(.system(size: 11, weight: .medium))
+                                    .foregroundColor(GraftColors.textSecondary)
+                                    .textCase(.uppercase)
+                                    .tracking(1.2)
+
+                                Button {
+                                    showExport = true
+                                } label: {
+                                    HStack {
+                                        Image(systemName: "square.and.arrow.up")
+                                            .font(.system(size: 16))
+                                            .foregroundColor(GraftColors.accent)
+                                            .frame(width: 28)
+
+                                        Text("Export & Share")
+                                            .font(.system(size: 15))
+                                            .foregroundColor(GraftColors.textPrimary)
+
+                                        Spacer()
+
+                                        Image(systemName: "chevron.right")
+                                            .font(.system(size: 12))
+                                            .foregroundColor(GraftColors.textSecondary.opacity(0.5))
+                                    }
+                                }
+                            }
+                            .padding(20)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                        // About Section
                         LiquidGlassCard {
                             VStack(alignment: .leading, spacing: 12) {
                                 Text("About Graft")
@@ -60,6 +96,9 @@ struct SettingsView: View {
                     }
                     .foregroundColor(GraftColors.accent)
                 }
+            }
+            .sheet(isPresented: $showExport) {
+                ExportView()
             }
         }
     }

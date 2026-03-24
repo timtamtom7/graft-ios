@@ -8,17 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		016DCA6F9E19F62A0087C02E /* APPSTORE.md in Resources */ = {isa = PBXBuildFile; fileRef = D3C18373403F86105BE97B7F /* APPSTORE.md */; };
+		27C8E9392A6309A9C1AC1EA3 /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DAC5A423B74AB917EE717 /* ExportView.swift */; };
 		3F3F54C2B4DB92FF08492AF6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CC460F6349AE55BB08AD9 /* OnboardingView.swift */; };
+		513D1DF54D835BAA740DF46D /* GraftWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25E0B9A8E82D7128C27547C /* GraftWidget.swift */; };
 		5143187B168AE9D0873E8B7E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DEA87853D03ED17470E265 /* HomeView.swift */; };
 		54C3E49CC1071650875476A3 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA1B6EE4620D76E73DC6165 /* Session.swift */; };
 		5751D5318DE2C2D8AD76511F /* PracticePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC91F1E1D442A158A73223CB /* PracticePlanView.swift */; };
 		5C063F5E37061CDC64A9809F /* SkillPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CCB548F5F98CE257B2F3D /* SkillPickerSheet.swift */; };
 		5FDCBD4FFF73E6F046F4EB6C /* SkillManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A3095FB159F8E2F2A8DAF6 /* SkillManagementView.swift */; };
 		6F5A686BECD425A88948024D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F92832146A45B5B03BE99FA /* SettingsView.swift */; };
+		7FAA102CDD9E4BC71D84161F /* GraftWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 99CCACB4402351609BCDD8F7 /* GraftWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		830013CB59B9C294E9D61808 /* LiquidGlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424B0CA1B6A234315F4F406 /* LiquidGlassCard.swift */; };
 		85CEB9204960299DB8A1EDE0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B646D2ABC680050833F904 /* Colors.swift */; };
 		8D4C179D1D74821C6442C353 /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F9466E5F85C2C6F315C34F /* PricingView.swift */; };
 		9044003518EBCB2A8AD1B1D3 /* LogSessionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1B74FB17056F715A73CB25 /* LogSessionSheet.swift */; };
+		9F6542A12D1B5DAC0A6D8DF7 /* WidgetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BD3A3A19AFF35C47D0CC7 /* WidgetDataManager.swift */; };
+		A2733C0918F18FA8ECBE3F52 /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE204247B542B5AF0D0D1E7B /* ExportService.swift */; };
 		AF2A19381B9557B48BD10A05 /* GraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E0AF8989DF2FBFC868634 /* GraftApp.swift */; };
 		AFB4B7316B5804A0021CB952 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39C034799025DAB43D2C9D5 /* Assets.xcassets */; };
 		B224DBF8402306243A569EE4 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D44B8E07469799D53DC956B /* DatabaseService.swift */; };
@@ -33,7 +38,33 @@
 		F9781A1F78D2103D819E0D09 /* PracticeTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5E7FE7E676A173AB8CADBA /* PracticeTimerView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		79474BD861EEF75BA5BFFDF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3746FF41EF611D277FD6B98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A95E1726307B8BEC9CC2283;
+			remoteInfo = GraftWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A3AD5B0B31E4E80705138719 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7FAA102CDD9E4BC71D84161F /* GraftWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1B5DAC5A423B74AB917EE717 /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
+		20B41F7A1258C78D3E6E6129 /* GraftWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GraftWidget.entitlements; sourceTree = "<group>"; };
 		28F9466E5F85C2C6F315C34F /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
 		3ACC51C934C9E100A8EFAFF9 /* PracticeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeModels.swift; sourceTree = "<group>"; };
 		3E1B74FB17056F715A73CB25 /* LogSessionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSessionSheet.swift; sourceTree = "<group>"; };
@@ -46,11 +77,14 @@
 		76BCD237F05A32C7BF6A540C /* Graft.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Graft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0CC460F6349AE55BB08AD9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		92DEA87853D03ED17470E265 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		99CCACB4402351609BCDD8F7 /* GraftWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = GraftWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F92832146A45B5B03BE99FA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A1D01801FF11C715C2FA4422 /* WeekDotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDotsView.swift; sourceTree = "<group>"; };
 		B39C034799025DAB43D2C9D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4B646D2ABC680050833F904 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BE204247B542B5AF0D0D1E7B /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
 		BE5E7FE7E676A173AB8CADBA /* PracticeTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeTimerView.swift; sourceTree = "<group>"; };
+		D25E0B9A8E82D7128C27547C /* GraftWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraftWidget.swift; sourceTree = "<group>"; };
 		D3C18373403F86105BE97B7F /* APPSTORE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = APPSTORE.md; sourceTree = "<group>"; };
 		DC91F1E1D442A158A73223CB /* PracticePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePlanView.swift; sourceTree = "<group>"; };
 		E3A3095FB159F8E2F2A8DAF6 /* SkillManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillManagementView.swift; sourceTree = "<group>"; };
@@ -58,6 +92,7 @@
 		EA9E0AF8989DF2FBFC868634 /* GraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraftApp.swift; sourceTree = "<group>"; };
 		F1D9BB23532F7695D624D777 /* ErrorStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStates.swift; sourceTree = "<group>"; };
 		F4C3063F291F20ED32746BE0 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		FA2BD3A3A19AFF35C47D0CC7 /* WidgetDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +110,7 @@
 		0235355075167E91C85A6F8E = {
 			isa = PBXGroup;
 			children = (
+				402A14C4873B6017258E1EE6 /* GraftWidget */,
 				9426104E7FEB69BE306DCEE7 /* Resources */,
 				09E6A339843AF77AB1F300FC /* Sources */,
 				4EFAF209E6690A3AE031AD47 /* Products */,
@@ -87,6 +123,7 @@
 				6A74178DE69F6ECA5428FF06 /* AnalyticsView.swift */,
 				52C8292A5EB0ACECE63A6264 /* ContentView.swift */,
 				F1D9BB23532F7695D624D777 /* ErrorStates.swift */,
+				1B5DAC5A423B74AB917EE717 /* ExportView.swift */,
 				92DEA87853D03ED17470E265 /* HomeView.swift */,
 				5424B0CA1B6A234315F4F406 /* LiquidGlassCard.swift */,
 				3E1B74FB17056F715A73CB25 /* LogSessionSheet.swift */,
@@ -123,10 +160,20 @@
 			path = AppStore;
 			sourceTree = "<group>";
 		};
+		402A14C4873B6017258E1EE6 /* GraftWidget */ = {
+			isa = PBXGroup;
+			children = (
+				20B41F7A1258C78D3E6E6129 /* GraftWidget.entitlements */,
+				D25E0B9A8E82D7128C27547C /* GraftWidget.swift */,
+			);
+			path = GraftWidget;
+			sourceTree = "<group>";
+		};
 		4EFAF209E6690A3AE031AD47 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				76BCD237F05A32C7BF6A540C /* Graft.app */,
+				99CCACB4402351609BCDD8F7 /* GraftWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,6 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				4D44B8E07469799D53DC956B /* DatabaseService.swift */,
+				BE204247B542B5AF0D0D1E7B /* ExportService.swift */,
+				FA2BD3A3A19AFF35C47D0CC7 /* WidgetDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -177,6 +226,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0A95E1726307B8BEC9CC2283 /* GraftWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7A6C07D6AD1BE477E6F4E03 /* Build configuration list for PBXNativeTarget "GraftWidgetExtension" */;
+			buildPhases = (
+				DAA54257EDE2A30074CDA584 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GraftWidgetExtension;
+			productName = GraftWidgetExtension;
+			productReference = 99CCACB4402351609BCDD8F7 /* GraftWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		7B613031A3FB9122B7B9EA64 /* Graft */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAD1EE25E2487C31D5E42C84 /* Build configuration list for PBXNativeTarget "Graft" */;
@@ -184,10 +248,12 @@
 				76BE5740334FD4FC48C0ED65 /* Sources */,
 				867A9DA00ED51A9FF2B3B49D /* Resources */,
 				BAA370E12CBACAA5DCA5E684 /* Frameworks */,
+				A3AD5B0B31E4E80705138719 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F3B2EF1E727230A830EA7FB8 /* PBXTargetDependency */,
 			);
 			name = Graft;
 			packageProductDependencies = (
@@ -224,6 +290,7 @@
 			projectRoot = "";
 			targets = (
 				7B613031A3FB9122B7B9EA64 /* Graft */,
+				0A95E1726307B8BEC9CC2283 /* GraftWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -250,6 +317,8 @@
 				D1762CFF220148FB95975C59 /* ContentView.swift in Sources */,
 				B224DBF8402306243A569EE4 /* DatabaseService.swift in Sources */,
 				F6D41796BD13FBD665D264A5 /* ErrorStates.swift in Sources */,
+				A2733C0918F18FA8ECBE3F52 /* ExportService.swift in Sources */,
+				27C8E9392A6309A9C1AC1EA3 /* ExportView.swift in Sources */,
 				AF2A19381B9557B48BD10A05 /* GraftApp.swift in Sources */,
 				5143187B168AE9D0873E8B7E /* HomeView.swift in Sources */,
 				830013CB59B9C294E9D61808 /* LiquidGlassCard.swift in Sources */,
@@ -266,10 +335,27 @@
 				5FDCBD4FFF73E6F046F4EB6C /* SkillManagementView.swift in Sources */,
 				5C063F5E37061CDC64A9809F /* SkillPickerSheet.swift in Sources */,
 				F37E27E4223B8AE325FBF686 /* WeekDotsView.swift in Sources */,
+				9F6542A12D1B5DAC0A6D8DF7 /* WidgetDataManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAA54257EDE2A30074CDA584 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				513D1DF54D835BAA740DF46D /* GraftWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F3B2EF1E727230A830EA7FB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0A95E1726307B8BEC9CC2283 /* GraftWidgetExtension */;
+			targetProxy = 79474BD861EEF75BA5BFFDF6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2C5D7ABAA93DF6AAB8B8CB3C /* Release */ = {
@@ -332,11 +418,27 @@
 			};
 			name = Release;
 		};
+		4F4ABAD6DC7E17BFA8708109 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GraftWidget/GraftWidget.entitlements;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Graft Widget";
+				INFOPLIST_KEY_NSExtension = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.graft.app.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		AB584F52E2AC4ED16DF32234 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Graft/Graft.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Graft;
@@ -351,11 +453,27 @@
 			};
 			name = Debug;
 		};
+		D0624C5213C1345FD7768CB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GraftWidget/GraftWidget.entitlements;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Graft Widget";
+				INFOPLIST_KEY_NSExtension = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.graft.app.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F5868E4118B53720AE9E68DE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Graft/Graft.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Graft;
@@ -445,6 +563,15 @@
 			buildConfigurations = (
 				FB78CD8EA7C85FB3856015C6 /* Debug */,
 				2C5D7ABAA93DF6AAB8B8CB3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A7A6C07D6AD1BE477E6F4E03 /* Build configuration list for PBXNativeTarget "GraftWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F4ABAD6DC7E17BFA8708109 /* Debug */,
+				D0624C5213C1345FD7768CB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

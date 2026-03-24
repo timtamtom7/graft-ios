@@ -34,5 +34,23 @@ targets:
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_NSUserActivityTypes: ""
+        INFOPLIST_KEY_CFBundleDisplayName: Graft
+        CODE_SIGN_ENTITLEMENTS: Graft/Graft.entitlements
     dependencies:
       - package: SQLite
+      - target: GraftWidgetExtension
+
+  GraftWidgetExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: GraftWidget
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.graft.app.widget
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Graft Widget
+        INFOPLIST_KEY_NSExtension: ""
+        CODE_SIGN_ENTITLEMENTS: GraftWidget/GraftWidget.entitlements
+        SKIP_INSTALL: YES
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks"

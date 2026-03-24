@@ -16,6 +16,7 @@ struct HomeView: View {
     @State private var showPracticeTimer: Bool = false
     @State private var showAnalytics: Bool = false
     @State private var showPracticePlan: Bool = false
+    @State private var showSettings: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -81,6 +82,14 @@ struct HomeView: View {
                                 .font(.system(size: 14))
                                 .foregroundColor(GraftColors.accent)
                         }
+
+                        Button {
+                            showSettings = true
+                        } label: {
+                            Image(systemName: "gearshape")
+                                .font(.system(size: 14))
+                                .foregroundColor(GraftColors.accent)
+                        }
                     }
                 }
             }
@@ -132,6 +141,9 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showPracticePlan) {
                 PracticePlanView(skills: skills.isEmpty ? (primarySkill.map { [$0] } ?? []) : skills)
+            }
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
             }
             .onAppear {
                 refreshData()
@@ -472,6 +484,7 @@ struct HomeView: View {
         skills = DatabaseService.shared.getActiveSkills()
         primarySkill = skills.first
         loadSkillData()
+        WidgetDataManager.shared.refreshWidgetData()
     }
 
     private func loadSkillData() {
