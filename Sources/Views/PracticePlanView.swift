@@ -120,12 +120,14 @@ struct PracticePlanView: View {
     @ViewBuilder
     private var completedSection: some View {
         let completed = plans.filter { $0.isCompleted }
-        if !completed.isEmpty {
-            VStack(alignment: .leading, spacing: 12) {
-                sectionHeader("Completed")
-                ForEach(completed.prefix(5)) { plan in
-                    PlannedSessionCard(plan: plan, onComplete: {}, onTap: {}, onDelete: {})
-                        .opacity(0.6)
+        return Group {
+            if !completed.isEmpty {
+                VStack(alignment: .leading, spacing: 12) {
+                    sectionHeader("Completed")
+                    ForEach(completed.prefix(5)) { plan in
+                        PlannedSessionCard(plan: plan, onComplete: {}, onTap: {}, onDelete: {})
+                            .opacity(0.6)
+                    }
                 }
             }
         }

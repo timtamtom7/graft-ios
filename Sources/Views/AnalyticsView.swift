@@ -24,6 +24,7 @@ struct AnalyticsView: View {
                         if skills.count > 1 {
                             skillComparisonSection
                         }
+                        aiInsightsSection
                     }
                     .padding(.horizontal, 20)
                     .padding(.top, 8)
@@ -285,6 +286,21 @@ struct AnalyticsView: View {
         trendData = DatabaseService.shared.getTrendData()
         weeklyGoal = DatabaseService.shared.getActiveGoal(for: .weekly)
         monthlyGoal = DatabaseService.shared.getActiveGoal(for: .monthly)
+    }
+
+    // MARK: - AI Insights Section
+
+    private var aiInsightsSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            LiquidGlassCard {
+                VStack(spacing: 16) {
+                    AIInsightsView(skills: skills)
+                    Divider().background(GraftColors.textSecondary.opacity(0.2))
+                    AISuggestionCard(skills: skills)
+                }
+                .padding(16)
+            }
+        }
     }
 }
 

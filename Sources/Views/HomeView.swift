@@ -17,6 +17,9 @@ struct HomeView: View {
     @State private var showAnalytics: Bool = false
     @State private var showPracticePlan: Bool = false
     @State private var showSettings: Bool = false
+    @State private var showTeacher: Bool = false
+    @State private var showStudentAssignments: Bool = false
+    @State private var currentTier: SubscriptionTier = .free
 
     var body: some View {
         NavigationStack {
@@ -84,6 +87,22 @@ struct HomeView: View {
                         }
 
                         Button {
+                            showTeacher = true
+                        } label: {
+                            Image(systemName: "person.2.fill")
+                                .font(.system(size: 14))
+                                .foregroundColor(GraftColors.accent)
+                        }
+
+                        Button {
+                            showStudentAssignments = true
+                        } label: {
+                            Image(systemName: "list.bullet.clipboard")
+                                .font(.system(size: 14))
+                                .foregroundColor(GraftColors.accent)
+                        }
+
+                        Button {
                             showSettings = true
                         } label: {
                             Image(systemName: "gearshape")
@@ -144,6 +163,12 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showSettings) {
                 SettingsView()
+            }
+            .sheet(isPresented: $showTeacher) {
+                TeacherView()
+            }
+            .sheet(isPresented: $showStudentAssignments) {
+                StudentAssignmentsView()
             }
             .onAppear {
                 refreshData()
@@ -483,6 +508,7 @@ struct HomeView: View {
     private func refreshData() {
         skills = DatabaseService.shared.getActiveSkills()
         primarySkill = skills.first
+        currentTier = DatabaseService.shared.getCurrentTier()
         loadSkillData()
         WidgetDataManager.shared.refreshWidgetData()
     }

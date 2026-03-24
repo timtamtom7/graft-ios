@@ -7,6 +7,7 @@ struct Session: Identifiable, Equatable {
     var feelRating: Int // 1-5
     var notes: String?
     var practicedAt: Date
+    var isTimerBased: Bool = false
 
     var formattedDuration: String {
         let hours = durationMinutes / 60

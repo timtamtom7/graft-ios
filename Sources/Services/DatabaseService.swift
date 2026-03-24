@@ -55,6 +55,44 @@ final class DatabaseService {
     private let goalPeriodEnd = SQLite.Expression<Date>("period_end")
     private let goalCreatedAt = SQLite.Expression<Date>("created_at")
 
+    // Teacher connections table
+    private let teacherConnections = Table("teacher_connections")
+    private let connId = SQLite.Expression<Int64>("id")
+    private let connTeacherCode = SQLite.Expression<String>("teacher_code")
+    private let connStudentCode = SQLite.Expression<String>("student_code")
+    private let connTeacherName = SQLite.Expression<String>("teacher_name")
+    private let connStudentName = SQLite.Expression<String>("student_name")
+    private let connCreatedAt = SQLite.Expression<Date>("created_at")
+
+    // Teacher assignments table
+    private let teacherAssignments = Table("teacher_assignments")
+    private let assignId = SQLite.Expression<Int64>("id")
+    private let assignConnectionId = SQLite.Expression<Int64>("connection_id")
+    private let assignSkillName = SQLite.Expression<String>("skill_name")
+    private let assignSkillEmoji = SQLite.Expression<String>("skill_emoji")
+    private let assignTitle = SQLite.Expression<String>("title")
+    private let assignDescription = SQLite.Expression<String?>("description")
+    private let assignTargetMinutes = SQLite.Expression<Int>("target_minutes")
+    private let assignTargetSessions = SQLite.Expression<Int>("target_sessions")
+    private let assignDeadline = SQLite.Expression<Date?>("deadline")
+    private let assignIsCompleted = SQLite.Expression<Bool>("is_completed")
+    private let assignCreatedAt = SQLite.Expression<Date>("created_at")
+
+    // Student sessions under assignments
+    private let studentSessions = Table("student_sessions")
+    private let studSessId = SQLite.Expression<Int64>("id")
+    private let studSessAssignmentId = SQLite.Expression<Int64>("assignment_id")
+    private let studSessDurationMinutes = SQLite.Expression<Int>("duration_minutes")
+    private let studSessFeelRating = SQLite.Expression<Int>("feel_rating")
+    private let studSessNotes = SQLite.Expression<String?>("notes")
+    private let studSessPracticedAt = SQLite.Expression<Date>("practiced_at")
+
+    // App tier table
+    private let appTier = Table("app_tier")
+    private let tierId = SQLite.Expression<Int64>("id")
+    private let tierType = SQLite.Expression<String>("type")
+    private let tierSetAt = SQLite.Expression<Date>("set_at")
+
     private init() {
         setupDatabase()
     }
@@ -116,6 +154,48 @@ final class DatabaseService {
             t.column(goalPeriodStart)
             t.column(goalPeriodEnd)
             t.column(goalCreatedAt, defaultValue: Date())
+        })
+
+        // Teacher connections table
+        try db?.run(teacherConnections.create(ifNotExists: true) { t in
+            t.column(connId, primaryKey: .autoincrement)
+            t.column(connTeacherCode)
+            t.column(connStudentCode)
+            t.column(connTeacherName)
+            t.column(connStudentName)
+            t.column(connCreatedAt, defaultValue: Date())
+        })
+
+        // Teacher assignments table
+        try db?.run(teacherAssignments.create(ifNotExists: true) { t in
+            t.column(assignId, primaryKey: .autoincrement)
+            t.column(assignConnectionId)
+            t.column(assignSkillName)
+            t.column(assignSkillEmoji)
+            t.column(assignTitle)
+            t.column(assignDescription)
+            t.column(assignTargetMinutes)
+            t.column(assignTargetSessions, defaultValue: 1)
+            t.column(assignDeadline)
+            t.column(assignIsCompleted, defaultValue: false)
+            t.column(assignCreatedAt, defaultValue: Date())
+        })
+
+        // Student sessions under assignments
+        try db?.run(studentSessions.create(ifNotExists: true) { t in
+            t.column(studSessId, primaryKey: .autoincrement)
+            t.column(studSessAssignmentId)
+            t.column(studSessDurationMinutes)
+            t.column(studSessFeelRating)
+            t.column(studSessNotes)
+            t.column(studSessPracticedAt)
+        })
+
+        // App tier table
+        try db?.run(appTier.create(ifNotExists: true) { t in
+            t.column(tierId, primaryKey: .autoincrement)
+            t.column(tierType, defaultValue: SubscriptionTier.free.rawValue)
+            t.column(tierSetAt, defaultValue: Date())
         })
     }
 
@@ -257,7 +337,8 @@ final class DatabaseService {
                     sessionDurationMinutes <- session.durationMinutes,
                     sessionFeelRating <- session.feelRating,
                     sessionNotes <- session.notes,
-                    sessionPracticedAt <- session.practicedAt
+                    sessionPracticedAt <- session.practicedAt,
+                    sessionIsTimerBased <- session.isTimerBased
                 ))
             } else {
                 let insert = sessions.insert(
@@ -266,7 +347,7 @@ final class DatabaseService {
                     sessionFeelRating <- session.feelRating,
                     sessionNotes <- session.notes,
                     sessionPracticedAt <- session.practicedAt,
-                    sessionIsTimerBased <- (session as? TimerSession)?.isTimerBased ?? false
+                    sessionIsTimerBased <- session.isTimerBased
                 )
                 session.id = try db.run(insert)
             }
@@ -302,7 +383,8 @@ final class DatabaseService {
                     durationMinutes: row[sessionDurationMinutes],
                     feelRating: row[sessionFeelRating],
                     notes: row[sessionNotes],
-                    practicedAt: row[sessionPracticedAt]
+                    practicedAt: row[sessionPracticedAt],
+                    isTimerBased: row[sessionIsTimerBased]
                 ))
             }
         } catch {
@@ -333,7 +415,8 @@ final class DatabaseService {
                     durationMinutes: row[sessionDurationMinutes],
                     feelRating: row[sessionFeelRating],
                     notes: row[sessionNotes],
-                    practicedAt: row[sessionPracticedAt]
+                    practicedAt: row[sessionPracticedAt],
+                    isTimerBased: row[sessionIsTimerBased]
                 ))
             }
         } catch {
@@ -357,7 +440,8 @@ final class DatabaseService {
                     durationMinutes: row[sessionDurationMinutes],
                     feelRating: row[sessionFeelRating],
                     notes: row[sessionNotes],
-                    practicedAt: row[sessionPracticedAt]
+                    practicedAt: row[sessionPracticedAt],
+                    isTimerBased: row[sessionIsTimerBased]
                 ))
             }
         } catch {
@@ -771,6 +855,437 @@ final class DatabaseService {
             try db.run(row.update(goalCurrentMinutes <- minutes))
         } catch {
             print("updateGoalProgress error: \(error)")
+        }
+    }
+
+    // MARK: - Teacher Connections
+
+    @discardableResult
+    func saveTeacherConnection(_ conn: inout TeacherConnection) -> Bool {
+        guard let db = db else { return false }
+        do {
+            if let id = conn.id {
+                let row = teacherConnections.filter(connId == id)
+                try db.run(row.update(
+                    connTeacherName <- conn.teacherName,
+                    connStudentName <- conn.studentName
+                ))
+            } else {
+                let insert = teacherConnections.insert(
+                    connTeacherCode <- conn.teacherCode,
+                    connStudentCode <- conn.studentCode,
+                    connTeacherName <- conn.teacherName,
+                    connStudentName <- conn.studentName,
+                    connCreatedAt <- conn.createdAt
+                )
+                conn.id = try db.run(insert)
+            }
+            return true
+        } catch {
+            print("saveTeacherConnection error: \(error)")
+            return false
+        }
+    }
+
+    func getTeacherConnection(code: String) -> TeacherConnection? {
+        guard let db = db else { return nil }
+        do {
+            let query = teacherConnections.filter(connTeacherCode == code).limit(1)
+            if let row = try db.pluck(query) {
+                return TeacherConnection(
+                    id: row[connId],
+                    teacherCode: row[connTeacherCode],
+                    studentCode: row[connStudentCode],
+                    teacherName: row[connTeacherName],
+                    studentName: row[connStudentName],
+                    createdAt: row[connCreatedAt]
+                )
+            }
+        } catch {
+            print("getTeacherConnection error: \(error)")
+        }
+        return nil
+    }
+
+    func getStudentConnections(studentCode: String) -> [TeacherConnection] {
+        guard let db = db else { return [] }
+        var result: [TeacherConnection] = []
+        do {
+            let query = teacherConnections.filter(connStudentCode == studentCode)
+            for row in try db.prepare(query) {
+                result.append(TeacherConnection(
+                    id: row[connId],
+                    teacherCode: row[connTeacherCode],
+                    studentCode: row[connStudentCode],
+                    teacherName: row[connTeacherName],
+                    studentName: row[connStudentName],
+                    createdAt: row[connCreatedAt]
+                ))
+            }
+        } catch {
+            print("getStudentConnections error: \(error)")
+        }
+        return result
+    }
+
+    func getTeacherConnections() -> [TeacherConnection] {
+        guard let db = db else { return [] }
+        var result: [TeacherConnection] = []
+        do {
+            for row in try db.prepare(teacherConnections) {
+                result.append(TeacherConnection(
+                    id: row[connId],
+                    teacherCode: row[connTeacherCode],
+                    studentCode: row[connStudentCode],
+                    teacherName: row[connTeacherName],
+                    studentName: row[connStudentName],
+                    createdAt: row[connCreatedAt]
+                ))
+            }
+        } catch {
+            print("getTeacherConnections error: \(error)")
+        }
+        return result
+    }
+
+    func deleteTeacherConnection(id: Int64) {
+        guard let db = db else { return }
+        do {
+            // Delete associated assignments first
+            let assignments = teacherAssignments.filter(assignConnectionId == id)
+            try db.run(assignments.delete())
+            // Delete connection
+            let row = teacherConnections.filter(connId == id)
+            try db.run(row.delete())
+        } catch {
+            print("deleteTeacherConnection error: \(error)")
+        }
+    }
+
+    // MARK: - Teacher Assignments
+
+    @discardableResult
+    func saveTeacherAssignment(_ assignment: inout TeacherAssignment) -> Bool {
+        guard let db = db else { return false }
+        do {
+            if let id = assignment.id {
+                let row = teacherAssignments.filter(assignId == id)
+                try db.run(row.update(
+                    assignTitle <- assignment.title,
+                    assignDescription <- assignment.description,
+                    assignTargetMinutes <- assignment.targetMinutes,
+                    assignTargetSessions <- assignment.targetSessions,
+                    assignDeadline <- assignment.deadline,
+                    assignIsCompleted <- assignment.isCompleted
+                ))
+            } else {
+                let insert = teacherAssignments.insert(
+                    assignConnectionId <- assignment.connectionId,
+                    assignSkillName <- assignment.skillName,
+                    assignSkillEmoji <- assignment.skillEmoji,
+                    assignTitle <- assignment.title,
+                    assignDescription <- assignment.description,
+                    assignTargetMinutes <- assignment.targetMinutes,
+                    assignTargetSessions <- assignment.targetSessions,
+                    assignDeadline <- assignment.deadline,
+                    assignIsCompleted <- assignment.isCompleted,
+                    assignCreatedAt <- assignment.createdAt
+                )
+                assignment.id = try db.run(insert)
+            }
+            return true
+        } catch {
+            print("saveTeacherAssignment error: \(error)")
+            return false
+        }
+    }
+
+    func getAssignmentsForConnection(_ connectionId: Int64) -> [TeacherAssignment] {
+        guard let db = db else { return [] }
+        var result: [TeacherAssignment] = []
+        do {
+            let query = teacherAssignments.filter(assignConnectionId == connectionId).order(assignCreatedAt.desc)
+            for row in try db.prepare(query) {
+                result.append(TeacherAssignment(
+                    id: row[assignId],
+                    connectionId: row[assignConnectionId],
+                    skillName: row[assignSkillName],
+                    skillEmoji: row[assignSkillEmoji],
+                    title: row[assignTitle],
+                    description: row[assignDescription],
+                    targetMinutes: row[assignTargetMinutes],
+                    targetSessions: row[assignTargetSessions],
+                    deadline: row[assignDeadline],
+                    isCompleted: row[assignIsCompleted],
+                    createdAt: row[assignCreatedAt]
+                ))
+            }
+        } catch {
+            print("getAssignmentsForConnection error: \(error)")
+        }
+        return result
+    }
+
+    func getAllTeacherAssignments() -> [TeacherAssignment] {
+        guard let db = db else { return [] }
+        var result: [TeacherAssignment] = []
+        do {
+            let query = teacherAssignments.order(assignCreatedAt.desc)
+            for row in try db.prepare(query) {
+                result.append(TeacherAssignment(
+                    id: row[assignId],
+                    connectionId: row[assignConnectionId],
+                    skillName: row[assignSkillName],
+                    skillEmoji: row[assignSkillEmoji],
+                    title: row[assignTitle],
+                    description: row[assignDescription],
+                    targetMinutes: row[assignTargetMinutes],
+                    targetSessions: row[assignTargetSessions],
+                    deadline: row[assignDeadline],
+                    isCompleted: row[assignIsCompleted],
+                    createdAt: row[assignCreatedAt]
+                ))
+            }
+        } catch {
+            print("getAllTeacherAssignments error: \(error)")
+        }
+        return result
+    }
+
+    func deleteTeacherAssignment(id: Int64) {
+        guard let db = db else { return }
+        do {
+            let sessions = studentSessions.filter(studSessAssignmentId == id)
+            try db.run(sessions.delete())
+            let row = teacherAssignments.filter(assignId == id)
+            try db.run(row.delete())
+        } catch {
+            print("deleteTeacherAssignment error: \(error)")
+        }
+    }
+
+    func markAssignmentCompleted(id: Int64) {
+        guard let db = db else { return }
+        do {
+            let row = teacherAssignments.filter(assignId == id)
+            try db.run(row.update(assignIsCompleted <- true))
+        } catch {
+            print("markAssignmentCompleted error: \(error)")
+        }
+    }
+
+    // MARK: - Student Sessions
+
+    @discardableResult
+    func saveStudentSession(_ session: inout StudentSession) -> Bool {
+        guard let db = db else { return false }
+        do {
+            if let id = session.id {
+                let row = studentSessions.filter(studSessId == id)
+                try db.run(row.update(
+                    studSessDurationMinutes <- session.durationMinutes,
+                    studSessFeelRating <- session.feelRating,
+                    studSessNotes <- session.notes,
+                    studSessPracticedAt <- session.practicedAt
+                ))
+            } else {
+                let insert = studentSessions.insert(
+                    studSessAssignmentId <- session.assignmentId,
+                    studSessDurationMinutes <- session.durationMinutes,
+                    studSessFeelRating <- session.feelRating,
+                    studSessNotes <- session.notes,
+                    studSessPracticedAt <- session.practicedAt
+                )
+                session.id = try db.run(insert)
+            }
+            return true
+        } catch {
+            print("saveStudentSession error: \(error)")
+            return false
+        }
+    }
+
+    func getStudentSessions(for assignmentId: Int64) -> [StudentSession] {
+        guard let db = db else { return [] }
+        var result: [StudentSession] = []
+        do {
+            let query = studentSessions.filter(studSessAssignmentId == assignmentId).order(studSessPracticedAt.desc)
+            for row in try db.prepare(query) {
+                result.append(StudentSession(
+                    id: row[studSessId],
+                    assignmentId: row[studSessAssignmentId],
+                    durationMinutes: row[studSessDurationMinutes],
+                    feelRating: row[studSessFeelRating],
+                    notes: row[studSessNotes],
+                    practicedAt: row[studSessPracticedAt]
+                ))
+            }
+        } catch {
+            print("getStudentSessions error: \(error)")
+        }
+        return result
+    }
+
+    func getTotalMinutesForAssignment(_ assignmentId: Int64) -> Int {
+        guard let db = db else { return 0 }
+        var total = 0
+        do {
+            let query = studentSessions.filter(studSessAssignmentId == assignmentId)
+            for row in try db.prepare(query) {
+                total += row[studSessDurationMinutes]
+            }
+        } catch {
+            print("getTotalMinutesForAssignment error: \(error)")
+        }
+        return total
+    }
+
+    func getStudentProgressForConnection(_ connectionId: Int64) -> (totalMinutes: Int, sessionsCount: Int) {
+        let assignments = getAssignmentsForConnection(connectionId)
+        var totalMinutes = 0
+        var sessionsCount = 0
+        for assignment in assignments {
+            guard let id = assignment.id else { continue }
+            let sessions = getStudentSessions(for: id)
+            sessionsCount += sessions.count
+            totalMinutes += sessions.reduce(0) { $0 + $1.durationMinutes }
+        }
+        return (totalMinutes, sessionsCount)
+    }
+
+    // MARK: - App Tier
+
+    func getCurrentTier() -> SubscriptionTier {
+        guard let db = db else { return .free }
+        do {
+            if let row = try db.pluck(appTier) {
+                return SubscriptionTier(rawValue: row[tierType]) ?? .free
+            }
+        } catch {
+            print("getCurrentTier error: \(error)")
+        }
+        return .free
+    }
+
+    func setTier(_ tier: SubscriptionTier) {
+        guard let db = db else { return }
+        do {
+            if let row = try db.pluck(appTier) {
+                try db.run(appTier.update(
+                    tierType <- tier.rawValue,
+                    tierSetAt <- Date()
+                ))
+            } else {
+                try db.run(appTier.insert(
+                    tierType <- tier.rawValue,
+                    tierSetAt <- Date()
+                ))
+            }
+        } catch {
+            print("setTier error: \(error)")
+        }
+    }
+
+    // MARK: - AI Pattern Analysis
+
+    func getAIPatternInsights() -> [String] {
+        var insights: [String] = []
+        let sessions = getAllSessionsForAllSkills()
+        guard sessions.count >= 5 else { return [] }
+
+        let calendar = Calendar.current
+
+        // Best time of day
+        let hourGroups = Dictionary(grouping: sessions) { session in
+            calendar.component(.hour, from: session.practicedAt)
+        }
+        var bestHourAvg: (hour: Int, avgFeel: Double) = (12, 0)
+        for (hour, hourSessions) in hourGroups {
+            guard hourSessions.count >= 2 else { continue }
+            let avgFeel = Double(hourSessions.reduce(0) { $0 + $1.feelRating }) / Double(hourSessions.count)
+            if avgFeel > bestHourAvg.avgFeel {
+                bestHourAvg = (hour, avgFeel)
+            }
+        }
+        if bestHourAvg.avgFeel > 0 {
+            let timeLabel = timeOfDayLabel(bestHourAvg.hour)
+            insights.append("Your best sessions are around \(timeLabel)")
+        }
+
+        // Timer vs manual sessions
+        let timerSessions = sessions.filter { $0.isTimerBased }
+        let manualSessions = sessions.filter { !$0.isTimerBased }
+        if !timerSessions.isEmpty && !manualSessions.isEmpty {
+            let timerAvg = Double(timerSessions.reduce(0) { $0 + $1.durationMinutes }) / Double(timerSessions.count)
+            let manualAvg = Double(manualSessions.reduce(0) { $0 + $1.durationMinutes }) / Double(manualSessions.count)
+            if timerAvg > manualAvg * 1.2 {
+                insights.append("You practice \(Int((timerAvg / manualAvg - 1) * 100))% longer when using the timer")
+            }
+        }
+
+        // Weekday vs weekend
+        let weekdaySessions = sessions.filter { !calendar.isDateInWeekend($0.practicedAt) }
+        let weekendSessions = sessions.filter { calendar.isDateInWeekend($0.practicedAt) }
+        if !weekdaySessions.isEmpty && !weekendSessions.isEmpty {
+            let weekdayAvg = Double(weekdaySessions.count) / max(5, 1)
+            let weekendAvg = Double(weekendSessions.count) / max(2, 1)
+            if weekdayAvg > weekendAvg * 1.3 {
+                insights.append("You practice more on weekdays")
+            } else if weekendAvg > weekdayAvg * 1.3 {
+                insights.append("You practice more on weekends")
+            }
+        }
+
+        // Streak insight
+        let streak = getLongestStreakDays()
+        if streak >= 7 {
+            insights.append("Your best streak is \(streak) days — keep building!")
+        }
+
+        // Session frequency
+        if sessions.count >= 10 {
+            let recent = sessions.prefix(sessions.count / 2)
+            let older = sessions.suffix(sessions.count / 2)
+            let recentAvg = Double(recent.reduce(0) { $0 + $1.durationMinutes }) / Double(max(recent.count, 1))
+            let olderAvg = Double(older.reduce(0) { $0 + $1.durationMinutes }) / Double(max(older.count, 1))
+            if recentAvg > olderAvg * 1.3 {
+                insights.append("Your recent sessions are getting longer — great momentum!")
+            } else if recentAvg < olderAvg * 0.7 {
+                insights.append("Your sessions have been shorter lately — try the timer for focus")
+            }
+        }
+
+        return insights
+    }
+
+    private func getAllSessionsForAllSkills() -> [Session] {
+        guard let db = db else { return [] }
+        var result: [Session] = []
+        do {
+            for row in try db.prepare(sessions.order(sessionPracticedAt.desc)) {
+                result.append(Session(
+                    id: row[sessionId],
+                    skillId: row[sessionSkillId],
+                    durationMinutes: row[sessionDurationMinutes],
+                    feelRating: row[sessionFeelRating],
+                    notes: row[sessionNotes],
+                    practicedAt: row[sessionPracticedAt],
+                    isTimerBased: row[sessionIsTimerBased]
+                ))
+            }
+        } catch {
+            print("getAllSessionsForAllSkills error: \(error)")
+        }
+        return result
+    }
+
+    private func timeOfDayLabel(_ hour: Int) -> String {
+        switch hour {
+        case 5..<12: return "morning"
+        case 12..<14: return "midday"
+        case 14..<17: return "afternoon"
+        case 17..<21: return "evening"
+        default: return "night"
         }
     }
 }
