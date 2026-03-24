@@ -11,7 +11,9 @@
 		3F3F54C2B4DB92FF08492AF6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CC460F6349AE55BB08AD9 /* OnboardingView.swift */; };
 		5143187B168AE9D0873E8B7E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DEA87853D03ED17470E265 /* HomeView.swift */; };
 		54C3E49CC1071650875476A3 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA1B6EE4620D76E73DC6165 /* Session.swift */; };
+		5751D5318DE2C2D8AD76511F /* PracticePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC91F1E1D442A158A73223CB /* PracticePlanView.swift */; };
 		5C063F5E37061CDC64A9809F /* SkillPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CCB548F5F98CE257B2F3D /* SkillPickerSheet.swift */; };
+		5FDCBD4FFF73E6F046F4EB6C /* SkillManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A3095FB159F8E2F2A8DAF6 /* SkillManagementView.swift */; };
 		6F5A686BECD425A88948024D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F92832146A45B5B03BE99FA /* SettingsView.swift */; };
 		830013CB59B9C294E9D61808 /* LiquidGlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424B0CA1B6A234315F4F406 /* LiquidGlassCard.swift */; };
 		85CEB9204960299DB8A1EDE0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B646D2ABC680050833F904 /* Colors.swift */; };
@@ -22,19 +24,24 @@
 		B224DBF8402306243A569EE4 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D44B8E07469799D53DC956B /* DatabaseService.swift */; };
 		C01BD788F3DF63B76390F79A /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E8DD66010D5FFED6145BB65A /* SQLite */; };
 		C752645C7D4D6B7509D58A99 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C3063F291F20ED32746BE0 /* Skill.swift */; };
+		C78CDE2EE8CE0AFC6FF0E6B1 /* PracticeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC51C934C9E100A8EFAFF9 /* PracticeModels.swift */; };
 		D1762CFF220148FB95975C59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C8292A5EB0ACECE63A6264 /* ContentView.swift */; };
 		D372C28B1E4B95A9A9D7EE1E /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FC5706D6C8A750A3D55CA /* MonthlyView.swift */; };
+		E3A298F836E49DC65D6CE076 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A74178DE69F6ECA5428FF06 /* AnalyticsView.swift */; };
 		F37E27E4223B8AE325FBF686 /* WeekDotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D01801FF11C715C2FA4422 /* WeekDotsView.swift */; };
 		F6D41796BD13FBD665D264A5 /* ErrorStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D9BB23532F7695D624D777 /* ErrorStates.swift */; };
+		F9781A1F78D2103D819E0D09 /* PracticeTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5E7FE7E676A173AB8CADBA /* PracticeTimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		28F9466E5F85C2C6F315C34F /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
+		3ACC51C934C9E100A8EFAFF9 /* PracticeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeModels.swift; sourceTree = "<group>"; };
 		3E1B74FB17056F715A73CB25 /* LogSessionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSessionSheet.swift; sourceTree = "<group>"; };
 		4D44B8E07469799D53DC956B /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		52C8292A5EB0ACECE63A6264 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5424B0CA1B6A234315F4F406 /* LiquidGlassCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidGlassCard.swift; sourceTree = "<group>"; };
 		650FC5706D6C8A750A3D55CA /* MonthlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyView.swift; sourceTree = "<group>"; };
+		6A74178DE69F6ECA5428FF06 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		6DA1B6EE4620D76E73DC6165 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		76BCD237F05A32C7BF6A540C /* Graft.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Graft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0CC460F6349AE55BB08AD9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -43,7 +50,10 @@
 		A1D01801FF11C715C2FA4422 /* WeekDotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDotsView.swift; sourceTree = "<group>"; };
 		B39C034799025DAB43D2C9D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4B646D2ABC680050833F904 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BE5E7FE7E676A173AB8CADBA /* PracticeTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeTimerView.swift; sourceTree = "<group>"; };
 		D3C18373403F86105BE97B7F /* APPSTORE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = APPSTORE.md; sourceTree = "<group>"; };
+		DC91F1E1D442A158A73223CB /* PracticePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePlanView.swift; sourceTree = "<group>"; };
+		E3A3095FB159F8E2F2A8DAF6 /* SkillManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillManagementView.swift; sourceTree = "<group>"; };
 		E51CCB548F5F98CE257B2F3D /* SkillPickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPickerSheet.swift; sourceTree = "<group>"; };
 		EA9E0AF8989DF2FBFC868634 /* GraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraftApp.swift; sourceTree = "<group>"; };
 		F1D9BB23532F7695D624D777 /* ErrorStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStates.swift; sourceTree = "<group>"; };
@@ -74,6 +84,7 @@
 		060ED0C63B8718DA064F0F3C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6A74178DE69F6ECA5428FF06 /* AnalyticsView.swift */,
 				52C8292A5EB0ACECE63A6264 /* ContentView.swift */,
 				F1D9BB23532F7695D624D777 /* ErrorStates.swift */,
 				92DEA87853D03ED17470E265 /* HomeView.swift */,
@@ -81,8 +92,11 @@
 				3E1B74FB17056F715A73CB25 /* LogSessionSheet.swift */,
 				650FC5706D6C8A750A3D55CA /* MonthlyView.swift */,
 				7A0CC460F6349AE55BB08AD9 /* OnboardingView.swift */,
+				DC91F1E1D442A158A73223CB /* PracticePlanView.swift */,
+				BE5E7FE7E676A173AB8CADBA /* PracticeTimerView.swift */,
 				28F9466E5F85C2C6F315C34F /* PricingView.swift */,
 				9F92832146A45B5B03BE99FA /* SettingsView.swift */,
+				E3A3095FB159F8E2F2A8DAF6 /* SkillManagementView.swift */,
 				E51CCB548F5F98CE257B2F3D /* SkillPickerSheet.swift */,
 				A1D01801FF11C715C2FA4422 /* WeekDotsView.swift */,
 			);
@@ -129,6 +143,7 @@
 		A58D0C2130FECA3DC4C13536 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3ACC51C934C9E100A8EFAFF9 /* PracticeModels.swift */,
 				6DA1B6EE4620D76E73DC6165 /* Session.swift */,
 				F4C3063F291F20ED32746BE0 /* Skill.swift */,
 			);
@@ -230,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3A298F836E49DC65D6CE076 /* AnalyticsView.swift in Sources */,
 				85CEB9204960299DB8A1EDE0 /* Colors.swift in Sources */,
 				D1762CFF220148FB95975C59 /* ContentView.swift in Sources */,
 				B224DBF8402306243A569EE4 /* DatabaseService.swift in Sources */,
@@ -240,10 +256,14 @@
 				9044003518EBCB2A8AD1B1D3 /* LogSessionSheet.swift in Sources */,
 				D372C28B1E4B95A9A9D7EE1E /* MonthlyView.swift in Sources */,
 				3F3F54C2B4DB92FF08492AF6 /* OnboardingView.swift in Sources */,
+				C78CDE2EE8CE0AFC6FF0E6B1 /* PracticeModels.swift in Sources */,
+				5751D5318DE2C2D8AD76511F /* PracticePlanView.swift in Sources */,
+				F9781A1F78D2103D819E0D09 /* PracticeTimerView.swift in Sources */,
 				8D4C179D1D74821C6442C353 /* PricingView.swift in Sources */,
 				54C3E49CC1071650875476A3 /* Session.swift in Sources */,
 				6F5A686BECD425A88948024D /* SettingsView.swift in Sources */,
 				C752645C7D4D6B7509D58A99 /* Skill.swift in Sources */,
+				5FDCBD4FFF73E6F046F4EB6C /* SkillManagementView.swift in Sources */,
 				5C063F5E37061CDC64A9809F /* SkillPickerSheet.swift in Sources */,
 				F37E27E4223B8AE325FBF686 /* WeekDotsView.swift in Sources */,
 			);

@@ -1,35 +1,29 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var skill: Skill?
+    @State private var skills: [Skill] = []
+    @State private var primarySkill: Skill?
     @State private var weeklySessions: [(date: Date, totalMinutes: Int)] = []
     @State private var monthlyTotalMinutes: Int = 0
     @State private var practiceDaysCount: Int = 0
     @State private var showLogSession: Bool = false
     @State private var showSkillPicker: Bool = false
+    @State private var showSkillManagement: Bool = false
     @State private var showMonthlyView: Bool = false
     @State private var showPricing: Bool = false
     @State private var showSessionError: Bool = false
     @State private var sessionErrorMessage: String = ""
+    @State private var showPracticeTimer: Bool = false
+    @State private var showAnalytics: Bool = false
+    @State private var showPracticePlan: Bool = false
 
     var body: some View {
         NavigationStack {
             ZStack {
                 GraftColors.background.ignoresSafeArea()
 
-                if let skill = skill {
-                    ScrollView {
-                        VStack(spacing: 24) {
-                            skillCard(for: skill)
-                            weekDotsSection(for: skill)
-                            monthSummaryButton
-                            changeSkillButton
-                            upgradeButton
-                        }
-                        .padding(.horizontal, 20)
-                        .padding(.top, 8)
-                        .padding(.bottom, 40)
-                    }
+                if primarySkill != nil || !skills.isEmpty {
+                    mainContent
                 } else {
                     noSkillView
                 }
@@ -39,18 +33,59 @@ struct HomeView: View {
             .toolbarBackground(GraftColors.background, for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        showPricing = true
-                    } label: {
-                        Image(systemName: "crown.fill")
-                            .font(.system(size: 14))
+                ToolbarItem(placement: .topBarLeading) {
+                    if !skills.isEmpty {
+                        Button {
+                            showSkillManagement = true
+                        } label: {
+                            HStack(spacing: 4) {
+                                Text("\(skills.count)")
+                                    .font(.system(size: 12, weight: .bold, design: .monospaced))
+                                Image(systemName: "book.fill")
+                                    .font(.system(size: 12))
+                            }
                             .foregroundColor(GraftColors.accent)
+                        }
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    HStack(spacing: 16) {
+                        Button {
+                            showPracticeTimer = true
+                        } label: {
+                            Image(systemName: "timer")
+                                .font(.system(size: 14))
+                                .foregroundColor(GraftColors.accent)
+                        }
+
+                        Button {
+                            showAnalytics = true
+                        } label: {
+                            Image(systemName: "chart.line.uptrend.xyaxis")
+                                .font(.system(size: 14))
+                                .foregroundColor(GraftColors.accent)
+                        }
+
+                        Button {
+                            showPracticePlan = true
+                        } label: {
+                            Image(systemName: "calendar")
+                                .font(.system(size: 14))
+                                .foregroundColor(GraftColors.accent)
+                        }
+
+                        Button {
+                            showPricing = true
+                        } label: {
+                            Image(systemName: "crown.fill")
+                                .font(.system(size: 14))
+                                .foregroundColor(GraftColors.accent)
+                        }
                     }
                 }
             }
             .sheet(isPresented: $showLogSession) {
-                LogSessionSheet(skillId: skill?.id ?? 0) {
+                LogSessionSheet(skillId: primarySkill?.id ?? 0) {
                     refreshData()
                 } onError: { message in
                     sessionErrorMessage = message
@@ -64,8 +99,13 @@ struct HomeView: View {
                     showPricing = true
                 }
             }
+            .sheet(isPresented: $showSkillManagement) {
+                SkillManagementView(skills: skills) {
+                    refreshData()
+                }
+            }
             .sheet(isPresented: $showMonthlyView) {
-                if let skill = skill {
+                if let skill = primarySkill {
                     MonthlyView(skill: skill)
                 }
             }
@@ -84,13 +124,80 @@ struct HomeView: View {
                     }
                 )
             }
+            .sheet(isPresented: $showPracticeTimer) {
+                PracticeTimerView(skills: skills.isEmpty ? (primarySkill.map { [$0] } ?? []) : skills)
+            }
+            .sheet(isPresented: $showAnalytics) {
+                AnalyticsView(skills: skills.isEmpty ? (primarySkill.map { [$0] } ?? []) : skills)
+            }
+            .sheet(isPresented: $showPracticePlan) {
+                PracticePlanView(skills: skills.isEmpty ? (primarySkill.map { [$0] } ?? []) : skills)
+            }
             .onAppear {
                 refreshData()
             }
         }
     }
 
-    // MARK: - Subviews
+    // MARK: - Main Content
+
+    private var mainContent: some View {
+        ScrollView {
+            VStack(spacing: 24) {
+                if skills.count > 1 {
+                    skillTabsSection
+                }
+
+                if let skill = primarySkill {
+                    skillCard(for: skill)
+                    weekDotsSection(for: skill)
+                    monthSummaryCard(for: skill)
+                }
+
+                quickActionsSection
+
+                if skills.count > 1 {
+                    skillComparisonPreview
+                }
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 8)
+            .padding(.bottom, 40)
+        }
+    }
+
+    // MARK: - Skill Tabs
+
+    private var skillTabsSection: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 10) {
+                ForEach(skills) { skill in
+                    Button {
+                        primarySkill = skill
+                        loadSkillData()
+                    } label: {
+                        HStack(spacing: 6) {
+                            Text(skill.emoji)
+                                .font(.system(size: 14))
+                            Text(skill.name)
+                                .font(.system(size: 13, weight: .medium))
+                        }
+                        .foregroundColor(primarySkill?.id == skill.id ? .white : GraftColors.textSecondary)
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 8)
+                        .background(
+                            primarySkill?.id == skill.id
+                                ? LinearGradient(colors: [GraftColors.accent, GraftColors.accentMuted], startPoint: .leading, endPoint: .trailing)
+                                : LinearGradient(colors: [GraftColors.surface], startPoint: .leading, endPoint: .trailing)
+                        )
+                        .clipShape(Capsule())
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - Skill Card
 
     private func skillCard(for skill: Skill) -> some View {
         LiquidGlassCard {
@@ -116,16 +223,15 @@ struct HomeView: View {
                 Divider()
                     .background(GraftColors.textSecondary.opacity(0.3))
 
-                // Progress bar
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
-                        Text("This month")
+                        Text("This week")
                             .font(.system(size: 11, weight: .medium))
                             .foregroundColor(GraftColors.textSecondary)
                             .textCase(.uppercase)
                             .tracking(1.2)
                         Spacer()
-                        Text("\(Int(weeklyProgress * 100))% of last week")
+                        Text("\(Int(weeklyProgress * 100))% of goal")
                             .font(.system(size: 11))
                             .foregroundColor(GraftColors.textSecondary)
                     }
@@ -183,9 +289,10 @@ struct HomeView: View {
     private var weeklyProgress: Double {
         guard !weeklySessions.isEmpty else { return 0 }
         let thisWeek = weeklySessions.reduce(0) { $0 + $1.totalMinutes }
-        // Compare to a baseline of 5 hours (300 min)
         return min(Double(thisWeek) / 300.0, 1.0)
     }
+
+    // MARK: - Week Dots
 
     private func weekDotsSection(for skill: Skill) -> some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -204,51 +311,118 @@ struct HomeView: View {
         }
     }
 
-    private var monthSummaryButton: some View {
-        Button {
-            showMonthlyView = true
-        } label: {
-            HStack {
-                Text("Monthly View")
-                    .font(.system(size: 15, weight: .semibold))
-                    .foregroundColor(GraftColors.textPrimary)
-                Spacer()
-                Image(systemName: "calendar")
+    // MARK: - Month Summary Card
+
+    private func monthSummaryCard(for skill: Skill) -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Monthly Overview")
+                .font(.system(size: 11, weight: .medium))
+                .foregroundColor(GraftColors.textSecondary)
+                .textCase(.uppercase)
+                .tracking(1.2)
+
+            LiquidGlassCard {
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(formattedMonthlyTime)
+                            .font(.system(size: 28, weight: .bold, design: .monospaced))
+                            .foregroundColor(GraftColors.textPrimary)
+                        Text("this month")
+                            .font(.system(size: 11))
+                            .foregroundColor(GraftColors.textSecondary)
+                    }
+
+                    Spacer()
+
+                    Button {
+                        showMonthlyView = true
+                    } label: {
+                        HStack(spacing: 4) {
+                            Text("Details")
+                                .font(.system(size: 13, weight: .medium))
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 11))
+                        }
+                        .foregroundColor(GraftColors.accent)
+                    }
+                }
+                .padding(16)
+            }
+        }
+    }
+
+    // MARK: - Quick Actions
+
+    private var quickActionsSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Quick Actions")
+                .font(.system(size: 11, weight: .medium))
+                .foregroundColor(GraftColors.textSecondary)
+                .textCase(.uppercase)
+                .tracking(1.2)
+
+            HStack(spacing: 10) {
+                quickActionButton(icon: "timer", label: "Timer") {
+                    showPracticeTimer = true
+                }
+                quickActionButton(icon: "chart.line.uptrend.xyaxis", label: "Analytics") {
+                    showAnalytics = true
+                }
+                quickActionButton(icon: "calendar.badge.plus", label: "Plan") {
+                    showPracticePlan = true
+                }
+                quickActionButton(icon: "calendar", label: "Monthly") {
+                    showMonthlyView = true
+                }
+            }
+        }
+    }
+
+    private func quickActionButton(icon: String, label: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            VStack(spacing: 6) {
+                Image(systemName: icon)
+                    .font(.system(size: 18))
                     .foregroundColor(GraftColors.accent)
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 13, weight: .semibold))
+                Text(label)
+                    .font(.system(size: 10, weight: .medium))
                     .foregroundColor(GraftColors.textSecondary)
             }
-            .padding(16)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 14)
             .background(GraftColors.surface)
-            .clipShape(RoundedRectangle(cornerRadius: 14))
+            .clipShape(RoundedRectangle(cornerRadius: 12))
         }
     }
 
-    private var changeSkillButton: some View {
-        Button {
-            showSkillPicker = true
-        } label: {
-            Text("Change Skill")
-                .font(.system(size: 14, weight: .medium))
-                .foregroundColor(GraftColors.textSecondary)
-                .underline()
-        }
-    }
+    // MARK: - Skill Comparison Preview
 
-    private var upgradeButton: some View {
-        Button {
-            showPricing = true
-        } label: {
-            HStack(spacing: 8) {
-                Image(systemName: "crown")
-                    .font(.system(size: 13))
-                Text("Upgrade for more skills")
-                    .font(.system(size: 13, weight: .medium))
+    private var skillComparisonPreview: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Text("This week")
+                    .font(.system(size: 11, weight: .medium))
+                    .foregroundColor(GraftColors.textSecondary)
+                    .textCase(.uppercase)
+                    .tracking(1.2)
+                Spacer()
+                Button {
+                    showSkillManagement = true
+                } label: {
+                    Text("Manage")
+                        .font(.system(size: 11, weight: .medium))
+                        .foregroundColor(GraftColors.accent)
+                }
             }
-            .foregroundColor(GraftColors.accentMuted)
+
+            LiquidGlassCard {
+                SkillComparisonPreview(skills: skills)
+                    .padding(16)
+            }
         }
     }
+
+    // MARK: - No Skill
 
     private var noSkillView: some View {
         VStack(spacing: 20) {
@@ -295,8 +469,13 @@ struct HomeView: View {
     }
 
     private func refreshData() {
-        skill = DatabaseService.shared.getActiveSkill()
-        guard let skillId = skill?.id else {
+        skills = DatabaseService.shared.getActiveSkills()
+        primarySkill = skills.first
+        loadSkillData()
+    }
+
+    private func loadSkillData() {
+        guard let skillId = primarySkill?.id else {
             weeklySessions = []
             monthlyTotalMinutes = 0
             practiceDaysCount = 0
@@ -312,5 +491,70 @@ struct HomeView: View {
         weeklySessions = DatabaseService.shared.getWeeklySessions(for: skillId, weekStart: weekStart)
         monthlyTotalMinutes = DatabaseService.shared.getMonthlyTotalMinutes(for: skillId, month: today)
         practiceDaysCount = DatabaseService.shared.getPracticeDaysCount(for: skillId, month: today)
+    }
+}
+
+// MARK: - Skill Comparison Preview
+
+struct SkillComparisonPreview: View {
+    let skills: [Skill]
+
+    var body: some View {
+        VStack(spacing: 10) {
+            ForEach(skills.prefix(5)) { skill in
+                let weekly = getWeeklyMinutes(for: skill)
+                HStack(spacing: 10) {
+                    Text(skill.emoji)
+                        .font(.system(size: 14))
+                        .frame(width: 20)
+
+                    Text(skill.name)
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(GraftColors.textPrimary)
+                        .frame(width: 70, alignment: .leading)
+
+                    GeometryReader { geometry in
+                        let maxMinutes: CGFloat = 300
+                        let barWidth = CGFloat(weekly) / maxMinutes * geometry.size.width
+
+                        RoundedRectangle(cornerRadius: 3)
+                            .fill(
+                                LinearGradient(
+                                    colors: [GraftColors.accent.opacity(0.6), GraftColors.accentMuted.opacity(0.6)],
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                )
+                            )
+                            .frame(width: max(barWidth, 3), height: 10)
+                    }
+                    .frame(height: 10)
+
+                    Text(formatMinutes(weekly))
+                        .font(.system(size: 10, design: .monospaced))
+                        .foregroundColor(GraftColors.textSecondary)
+                        .frame(width: 35, alignment: .trailing)
+                }
+            }
+        }
+    }
+
+    private func getWeeklyMinutes(for skill: Skill) -> Int {
+        guard let skillId = skill.id else { return 0 }
+        let calendar = Calendar.current
+        let today = Date()
+        let weekday = calendar.component(.weekday, from: today)
+        let daysFromMonday = (weekday + 5) % 7
+        guard let weekStart = calendar.date(byAdding: .day, value: -daysFromMonday, to: today) else { return 0 }
+        let sessions = DatabaseService.shared.getWeeklySessions(for: skillId, weekStart: weekStart)
+        return sessions.reduce(0) { $0 + $1.totalMinutes }
+    }
+
+    private func formatMinutes(_ minutes: Int) -> String {
+        let hours = minutes / 60
+        let mins = minutes % 60
+        if hours > 0 {
+            return mins > 0 ? "\(hours)h\(mins)" : "\(hours)h"
+        }
+        return "\(mins)m"
     }
 }

@@ -10,8 +10,7 @@ struct SkillPickerSheet: View {
     @State private var customSkillEmoji: String = "🎯"
     @State private var showCustomInput: Bool = false
 
-    private let maxFreeSkills = 1
-    private let currentSkillCount = DatabaseService.shared.getAllSkills().filter { !$0.isActive }.count + 1
+    private let maxMasterSkills = 5
 
     private let commonSkills: [(name: String, emoji: String)] = [
         ("Guitar", "🎸"), ("Piano", "🎹"), ("Coding", "💻"), ("Language", "🗣"),
@@ -185,17 +184,23 @@ struct SkillPickerSheet: View {
     // MARK: - Actions
 
     private func selectSkill(name: String, emoji: String) {
-        // Check skill limit (Free tier = 1 skill)
-        let activeSkills = DatabaseService.shared.getAllSkills()
+        let activeSkills = DatabaseService.shared.getActiveSkills()
         let activeCount = activeSkills.count
 
-        if activeCount >= maxFreeSkills {
+        // Check if already tracking this skill
+        if activeSkills.contains(where: { $0.name.lowercased() == name.lowercased() }) {
+            onSave()
+            dismiss()
+            return
+        }
+
+        if activeCount >= maxMasterSkills {
             onLimitReached?()
             dismiss()
             return
         }
 
-        DatabaseService.shared.deactivateAllSkills()
+        // Add the new skill as active (don't deactivate others)
         var skill = Skill(name: name, emoji: emoji, isActive: true)
         DatabaseService.shared.saveSkill(&skill)
         onSave()

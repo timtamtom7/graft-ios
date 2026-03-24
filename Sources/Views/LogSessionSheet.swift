@@ -4,6 +4,7 @@ struct LogSessionSheet: View {
     let skillId: Int64
     let onSave: () -> Void
     var onError: ((String) -> Void)?
+    var durationOverride: Int? = nil
 
     @Environment(\.dismiss) private var dismiss
 
@@ -53,6 +54,12 @@ struct LogSessionSheet: View {
         }
         .presentationDetents([.medium, .large])
         .presentationDragIndicator(.visible)
+        .onAppear {
+            if let override = durationOverride {
+                hours = override / 60
+                minutes = override % 60
+            }
+        }
     }
 
     // MARK: - Duration Section
