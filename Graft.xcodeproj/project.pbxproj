@@ -10,6 +10,7 @@
 		016DCA6F9E19F62A0087C02E /* APPSTORE.md in Resources */ = {isa = PBXBuildFile; fileRef = D3C18373403F86105BE97B7F /* APPSTORE.md */; };
 		1ED7E708B7D1D90D619E44B3 /* AIInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525EC49625EE46D24A6A05AD /* AIInsightsView.swift */; };
 		27C8E9392A6309A9C1AC1EA3 /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DAC5A423B74AB917EE717 /* ExportView.swift */; };
+		37AF8A81D06457EAD132AB7C /* GraftMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E532EF90EAE6C20AA178D6BA /* GraftMacApp.swift */; };
 		3F3F54C2B4DB92FF08492AF6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CC460F6349AE55BB08AD9 /* OnboardingView.swift */; };
 		50886F5E611C625154DDF0A2 /* TeacherModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D940D0A29789AEBB1D4CF6E4 /* TeacherModels.swift */; };
 		513D1DF54D835BAA740DF46D /* GraftWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25E0B9A8E82D7128C27547C /* GraftWidget.swift */; };
@@ -29,12 +30,14 @@
 		AF2A19381B9557B48BD10A05 /* GraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E0AF8989DF2FBFC868634 /* GraftApp.swift */; };
 		AFB4B7316B5804A0021CB952 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39C034799025DAB43D2C9D5 /* Assets.xcassets */; };
 		B224DBF8402306243A569EE4 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D44B8E07469799D53DC956B /* DatabaseService.swift */; };
+		B4DCE16B0ED5C3A59DAEABF3 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = AD5A24317B596B05FF5B4FE3 /* SQLite */; };
 		C01BD788F3DF63B76390F79A /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E8DD66010D5FFED6145BB65A /* SQLite */; };
 		C752645C7D4D6B7509D58A99 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C3063F291F20ED32746BE0 /* Skill.swift */; };
 		C78CDE2EE8CE0AFC6FF0E6B1 /* PracticeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC51C934C9E100A8EFAFF9 /* PracticeModels.swift */; };
 		CA375B205C4A945914B39D1C /* TeacherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5B59D7F939DDE7DB0A4812 /* TeacherView.swift */; };
 		D1762CFF220148FB95975C59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C8292A5EB0ACECE63A6264 /* ContentView.swift */; };
 		D372C28B1E4B95A9A9D7EE1E /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FC5706D6C8A750A3D55CA /* MonthlyView.swift */; };
+		D73AA43ECCED491C2A1B0B1B /* MacGraftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C03CB0A7F5A308AD6B6080 /* MacGraftView.swift */; };
 		E3A298F836E49DC65D6CE076 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A74178DE69F6ECA5428FF06 /* AnalyticsView.swift */; };
 		ECF4702AC5C70827179EAE7A /* StudentAssignmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18AA78E368D44DAA91109EE /* StudentAssignmentsView.swift */; };
 		F37E27E4223B8AE325FBF686 /* WeekDotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D01801FF11C715C2FA4422 /* WeekDotsView.swift */; };
@@ -73,12 +76,15 @@
 		3ACC51C934C9E100A8EFAFF9 /* PracticeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeModels.swift; sourceTree = "<group>"; };
 		3E1B74FB17056F715A73CB25 /* LogSessionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSessionSheet.swift; sourceTree = "<group>"; };
 		4D44B8E07469799D53DC956B /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		50682FFE17364CBFA9530E55 /* GraftMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GraftMac.entitlements; sourceTree = "<group>"; };
 		525EC49625EE46D24A6A05AD /* AIInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIInsightsView.swift; sourceTree = "<group>"; };
 		52C8292A5EB0ACECE63A6264 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5424B0CA1B6A234315F4F406 /* LiquidGlassCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidGlassCard.swift; sourceTree = "<group>"; };
+		5EA8F039A7C5D94BDB1C2D44 /* GraftMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraftMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		650FC5706D6C8A750A3D55CA /* MonthlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyView.swift; sourceTree = "<group>"; };
 		6A74178DE69F6ECA5428FF06 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		6DA1B6EE4620D76E73DC6165 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		74E3726D1AC1E43C30C5FEBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		76BCD237F05A32C7BF6A540C /* Graft.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Graft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0CC460F6349AE55BB08AD9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		92DEA87853D03ED17470E265 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -86,6 +92,7 @@
 		9B5B59D7F939DDE7DB0A4812 /* TeacherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherView.swift; sourceTree = "<group>"; };
 		9F92832146A45B5B03BE99FA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A1D01801FF11C715C2FA4422 /* WeekDotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDotsView.swift; sourceTree = "<group>"; };
+		A8C03CB0A7F5A308AD6B6080 /* MacGraftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacGraftView.swift; sourceTree = "<group>"; };
 		B39C034799025DAB43D2C9D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4B646D2ABC680050833F904 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BE204247B542B5AF0D0D1E7B /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
@@ -97,6 +104,7 @@
 		DC91F1E1D442A158A73223CB /* PracticePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePlanView.swift; sourceTree = "<group>"; };
 		E3A3095FB159F8E2F2A8DAF6 /* SkillManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillManagementView.swift; sourceTree = "<group>"; };
 		E51CCB548F5F98CE257B2F3D /* SkillPickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPickerSheet.swift; sourceTree = "<group>"; };
+		E532EF90EAE6C20AA178D6BA /* GraftMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraftMacApp.swift; sourceTree = "<group>"; };
 		EA9E0AF8989DF2FBFC868634 /* GraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraftApp.swift; sourceTree = "<group>"; };
 		F1D9BB23532F7695D624D777 /* ErrorStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStates.swift; sourceTree = "<group>"; };
 		F4C3063F291F20ED32746BE0 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
@@ -104,6 +112,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		82E1F349246F0ACC580FF72C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4DCE16B0ED5C3A59DAEABF3 /* SQLite in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BAA370E12CBACAA5DCA5E684 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -120,7 +136,9 @@
 			children = (
 				402A14C4873B6017258E1EE6 /* GraftWidget */,
 				9426104E7FEB69BE306DCEE7 /* Resources */,
+				80AF8E2CB603581336C2162D /* Resources */,
 				09E6A339843AF77AB1F300FC /* Sources */,
+				8D530195870C6DC0918CC9DF /* Sources */,
 				4EFAF209E6690A3AE031AD47 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -184,9 +202,30 @@
 			isa = PBXGroup;
 			children = (
 				76BCD237F05A32C7BF6A540C /* Graft.app */,
+				5EA8F039A7C5D94BDB1C2D44 /* GraftMac.app */,
 				99CCACB4402351609BCDD8F7 /* GraftWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		80AF8E2CB603581336C2162D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				50682FFE17364CBFA9530E55 /* GraftMac.entitlements */,
+				74E3726D1AC1E43C30C5FEBD /* Info.plist */,
+			);
+			name = Resources;
+			path = GraftMac/Resources;
+			sourceTree = "<group>";
+		};
+		8D530195870C6DC0918CC9DF /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E532EF90EAE6C20AA178D6BA /* GraftMacApp.swift */,
+				A8C03CB0A7F5A308AD6B6080 /* MacGraftView.swift */,
+			);
+			name = Sources;
+			path = GraftMac/Sources;
 			sourceTree = "<group>";
 		};
 		9426104E7FEB69BE306DCEE7 /* Resources */ = {
@@ -253,6 +292,25 @@
 			productReference = 99CCACB4402351609BCDD8F7 /* GraftWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		75F7BC7C480873E5AA79E294 /* GraftMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDDE881387AC7312C219A98C /* Build configuration list for PBXNativeTarget "GraftMac" */;
+			buildPhases = (
+				DF94971B87217501903126A7 /* Sources */,
+				82E1F349246F0ACC580FF72C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GraftMac;
+			packageProductDependencies = (
+				AD5A24317B596B05FF5B4FE3 /* SQLite */,
+			);
+			productName = GraftMac;
+			productReference = 5EA8F039A7C5D94BDB1C2D44 /* GraftMac.app */;
+			productType = "com.apple.product-type.application";
+		};
 		7B613031A3FB9122B7B9EA64 /* Graft */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAD1EE25E2487C31D5E42C84 /* Build configuration list for PBXNativeTarget "Graft" */;
@@ -284,6 +342,9 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					75F7BC7C480873E5AA79E294 = {
+						DevelopmentTeam = "";
+					};
 				};
 			};
 			buildConfigurationList = 7A255E4B760504C403F8C1F2 /* Build configuration list for PBXProject "Graft" */;
@@ -302,6 +363,7 @@
 			projectRoot = "";
 			targets = (
 				7B613031A3FB9122B7B9EA64 /* Graft */,
+				75F7BC7C480873E5AA79E294 /* GraftMac */,
 				0A95E1726307B8BEC9CC2283 /* GraftWidgetExtension */,
 			);
 		};
@@ -363,6 +425,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DF94971B87217501903126A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37AF8A81D06457EAD132AB7C /* GraftMacApp.swift in Sources */,
+				D73AA43ECCED491C2A1B0B1B /* MacGraftView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -374,6 +445,32 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0F1475313929EAEC0EF50F00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_ENTITLEMENTS = GraftMac/Resources/GraftMac.entitlements;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = GraftMac/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.graft.app.macos;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
 		2C5D7ABAA93DF6AAB8B8CB3C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -421,16 +518,15 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -468,6 +564,32 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
+		};
+		BC43B686B490B86122FB9895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_ENTITLEMENTS = GraftMac/Resources/GraftMac.entitlements;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = GraftMac/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.graft.app.macos;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
 		};
 		D0624C5213C1345FD7768CB4 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -557,17 +679,16 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -601,6 +722,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
+		BDDE881387AC7312C219A98C /* Build configuration list for PBXNativeTarget "GraftMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F1475313929EAEC0EF50F00 /* Debug */,
+				BC43B686B490B86122FB9895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -615,6 +745,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AD5A24317B596B05FF5B4FE3 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41ADFC98E908C2E31845FABA /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
 		E8DD66010D5FFED6145BB65A /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 41ADFC98E908C2E31845FABA /* XCRemoteSwiftPackageReference "SQLite.swift" */;
