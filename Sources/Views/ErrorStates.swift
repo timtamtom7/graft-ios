@@ -349,3 +349,282 @@ struct ProgressBarGraphic: View {
         .frame(height: height)
     }
 }
+
+// MARK: - Streak Badge (R6)
+
+struct StreakBadge: View {
+    let streakDays: Int
+    let size: BadgeSize
+
+    enum BadgeSize {
+        case small, medium, large
+
+        var iconSize: CGFloat {
+            switch self {
+            case .small: return 14
+            case .medium: return 20
+            case .large: return 28
+            }
+        }
+
+        var fontSize: CGFloat {
+            switch self {
+            case .small: return 11
+            case .medium: return 14
+            case .large: return 20
+            }
+        }
+
+        var padding: CGFloat {
+            switch self {
+            case .small: return 6
+            case .medium: return 10
+            case .large: return 14
+            }
+        }
+
+        var fireSize: CGFloat {
+            switch self {
+            case .small: return 12
+            case .medium: return 16
+            case .large: return 24
+            }
+        }
+    }
+
+    var body: some View {
+        HStack(spacing: size.padding * 0.4) {
+            Text("🔥")
+                .font(.system(size: size.fireSize))
+
+            Text("\(streakDays)")
+                .font(.system(size: size.fontSize, weight: .bold, design: .rounded))
+                .foregroundColor(streakColor)
+
+            if size != .small {
+                Text(dayLabel)
+                    .font(.system(size: size.fontSize - 2))
+                    .foregroundColor(GraftColors.textSecondary)
+            }
+        }
+        .padding(.horizontal, size.padding)
+        .padding(.vertical, size.padding * 0.7)
+        .background(
+            RoundedRectangle(cornerRadius: size.padding * 1.2)
+                .fill(badgeGradient)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: size.padding * 1.2)
+                .strokeBorder(strokeColor.opacity(0.4), lineWidth: 1)
+        )
+    }
+
+    private var streakColor: Color {
+        if streakDays >= 30 {
+            return Color(hex: "f59e0b") // gold
+        } else if streakDays >= 7 {
+            return Color(hex: "e879f9") // purple
+        } else {
+            return GraftColors.accent
+        }
+    }
+
+    private var badgeGradient: LinearGradient {
+        let base = streakColor.opacity(0.15)
+        return LinearGradient(
+            colors: [base, base.opacity(0.05)],
+            startPoint: .top,
+            endPoint: .bottom
+        )
+    }
+
+    private var strokeColor: Color {
+        streakColor.opacity(0.5)
+    }
+
+    private var dayLabel: String {
+        streakDays == 1 ? "day" : "days"
+    }
+}
+
+// MARK: - Timer Mockup View (R6)
+
+struct TimerMockupView: View {
+    let duration: Int // minutes
+    let elapsed: Int // seconds
+    let skillEmoji: String
+    let skillName: String
+    let isRunning: Bool
+
+    private let size: CGFloat = 200
+
+    private var progress: Double {
+        guard duration > 0 else { return 0 }
+        return min(Double(elapsed) / Double(duration * 60), 1.0)
+    }
+
+    private var remainingSeconds: Int {
+        max((duration * 60) - elapsed, 0)
+    }
+
+    private var formattedTime: String {
+        let minutes = remainingSeconds / 60
+        let seconds = remainingSeconds % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+
+    var body: some View {
+        ZStack {
+            // Outer glow
+            Circle()
+                .fill(GraftColors.accent.opacity(0.08))
+                .frame(width: size + 30, height: size + 30)
+
+            // Track circle
+            Circle()
+                .stroke(GraftColors.surfaceRaised, lineWidth: 10)
+                .frame(width: size, height: size)
+
+            // Progress arc
+            Circle()
+                .trim(from: 0, to: progress)
+                .stroke(
+                    LinearGradient(
+                        colors: [GraftColors.accent, GraftColors.accentMuted],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ),
+                    style: StrokeStyle(lineWidth: 10, lineCap: .round)
+                )
+                .frame(width: size, height: size)
+                .rotationEffect(.degrees(-90))
+
+            // Center content
+            VStack(spacing: 8) {
+                if isRunning {
+                    // Pulsing indicator
+                    Circle()
+                        .fill(GraftColors.accent)
+                        .frame(width: 8, height: 8)
+                        .opacity(pulsingOpacity)
+                        .animation(
+                            isRunning ?
+                                Animation.easeInOut(duration: 0.8).repeatForever(autoreverses: true) :
+                                .default,
+                            value: isRunning
+                        )
+                }
+
+                Text(formattedTime)
+                    .font(.system(size: 40, weight: .bold, design: .monospaced))
+                    .foregroundColor(isRunning ? GraftColors.textPrimary : GraftColors.textSecondary)
+
+                HStack(spacing: 4) {
+                    Text(skillEmoji)
+                        .font(.system(size: 14))
+                    Text(skillName)
+                        .font(.system(size: 12))
+                        .foregroundColor(GraftColors.textSecondary)
+                }
+            }
+        }
+    }
+
+    private var pulsingOpacity: Double {
+        isRunning ? 1.0 : 0.3
+    }
+}
+
+// MARK: - App Icon Renderer (R6)
+
+import SwiftUI
+import UIKit
+
+struct AppIconRenderer {
+    static func render(size: CGSize = CGSize(width: 1024, height: 1024)) -> UIImage {
+        let view = AppIconView()
+        let renderer = UIGraphicsImageRenderer(size: size)
+        return renderer.image { context in
+            let swiftuiView = view
+            let controller = UIHostingController(rootView: swiftuiView)
+            controller.view.backgroundColor = .clear
+            controller.view.frame = CGRect(origin: .zero, size: size)
+            controller.view.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
+        }
+    }
+}
+
+struct AppIconView: View {
+    var body: some View {
+        ZStack {
+            // Background gradient
+            LinearGradient(
+                colors: [Color(hex: "1a1a2e"), Color(hex: "0d0d14")],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
+
+            // Glowing accent circle
+            Circle()
+                .fill(
+                    RadialGradient(
+                        colors: [Color(hex: "e879f9").opacity(0.3), .clear],
+                        center: .center,
+                        startRadius: 0,
+                        endRadius: 300
+                    )
+                )
+                .frame(width: 600, height: 600)
+
+            // Main icon - stylized hourglass / flame
+            VStack(spacing: 8) {
+                ZStack {
+                    // Outer ring
+                    Circle()
+                        .strokeBorder(
+                            LinearGradient(
+                                colors: [Color(hex: "e879f9"), Color(hex: "e879f9").opacity(0.4)],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 24
+                        )
+                        .frame(width: 360, height: 360)
+
+                    // Inner fill
+                    Circle()
+                        .fill(
+                            LinearGradient(
+                                colors: [Color(hex: "1e1e24"), Color(hex: "141417")],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .frame(width: 312, height: 312)
+
+                    // Flame-like shape
+                    VStack(spacing: 0) {
+                        Text("🔥")
+                            .font(.system(size: 140))
+                            .shadow(color: Color(hex: "e879f9").opacity(0.5), radius: 20)
+                    }
+                }
+            }
+
+            // Top highlight
+            Circle()
+                .fill(
+                    RadialGradient(
+                        colors: [.white.opacity(0.15), .clear],
+                        center: .topLeading,
+                        startRadius: 0,
+                        endRadius: 200
+                    )
+                )
+                .frame(width: 400, height: 400)
+                .offset(x: -200, y: -200)
+        }
+        .frame(width: 1024, height: 1024)
+    }
+}

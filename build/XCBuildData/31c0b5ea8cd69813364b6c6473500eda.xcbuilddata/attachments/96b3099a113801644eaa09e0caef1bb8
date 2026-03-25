@@ -1,0 +1,19 @@
+{
+  "" : {
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/GraftWidgetExtension.build/Objects-normal/arm64/GraftWidgetExtension-primary.dia",
+    "emit-module-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/GraftWidgetExtension.build/Objects-normal/arm64/GraftWidgetExtension-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/GraftWidgetExtension.build/Objects-normal/arm64/GraftWidgetExtension-primary-emit-module.dia",
+    "pch" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/GraftWidgetExtension.build/Objects-normal/arm64/GraftWidgetExtension-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/GraftWidgetExtension.build/Objects-normal/arm64/GraftWidgetExtension-primary.swiftdeps"
+  },
+  "/Users/mauriello/Dev/graft-ios/GraftWidget/GraftWidget.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/GraftWidgetExtension.build/Objects-normal/arm64/GraftWidget.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/GraftWidgetExtension.build/Objects-normal/arm64/GraftWidget.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/GraftWidgetExtension.build/Objects-normal/arm64/GraftWidget.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/GraftWidgetExtension.build/Objects-normal/arm64/GraftWidget.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/GraftWidgetExtension.build/Objects-normal/arm64/GraftWidget.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/GraftWidgetExtension.build/Objects-normal/arm64/GraftWidget.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/GraftWidgetExtension.build/Objects-normal/arm64/GraftWidget.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/GraftWidgetExtension.build/Objects-normal/arm64/GraftWidget~partial.swiftmodule"
+  }
+}

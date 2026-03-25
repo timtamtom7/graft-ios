@@ -1,0 +1,299 @@
+{
+  "" : {
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Graft-primary.dia",
+    "emit-module-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Graft-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Graft-primary-emit-module.dia",
+    "pch" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Graft-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Graft-primary.swiftdeps"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/App/GraftApp.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GraftApp.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GraftApp.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GraftApp.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GraftApp.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GraftApp.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GraftApp.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GraftApp.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GraftApp~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Models/PracticeModels.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeModels.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeModels.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeModels.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeModels.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeModels.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeModels.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeModels.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeModels~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Models/Session.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Session.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Session.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Session.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Session.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Session.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Session.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Session.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Session~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Models/Skill.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Skill.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Skill.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Skill.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Skill.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Skill.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Skill.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Skill.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Skill~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Models/TeacherModels.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherModels.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherModels.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherModels.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherModels.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherModels.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherModels.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherModels.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherModels~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Services/DatabaseService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/DatabaseService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/DatabaseService.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/DatabaseService.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/DatabaseService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/DatabaseService.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/DatabaseService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/DatabaseService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/DatabaseService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Services/ExportService.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportService.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportService.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportService.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportService.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportService.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportService.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportService.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportService~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Services/WidgetDataManager.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WidgetDataManager.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WidgetDataManager.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WidgetDataManager.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WidgetDataManager.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WidgetDataManager.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WidgetDataManager.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WidgetDataManager.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WidgetDataManager~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Theme/Colors.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Colors.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Colors.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Colors.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Colors.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Colors.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Colors.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Colors.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/Colors~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/AIInsightsView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AIInsightsView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AIInsightsView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AIInsightsView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AIInsightsView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AIInsightsView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AIInsightsView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AIInsightsView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AIInsightsView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/AnalyticsView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AnalyticsView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AnalyticsView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AnalyticsView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AnalyticsView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AnalyticsView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AnalyticsView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AnalyticsView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/AnalyticsView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/ContentView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/ErrorStates.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ErrorStates.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ErrorStates.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ErrorStates.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ErrorStates.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ErrorStates.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ErrorStates.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ErrorStates.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ErrorStates~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/ExportView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/ExportView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/HomeView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/HomeView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/HomeView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/HomeView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/HomeView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/HomeView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/HomeView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/HomeView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/HomeView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/LiquidGlassCard.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LiquidGlassCard.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LiquidGlassCard.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LiquidGlassCard.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LiquidGlassCard.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LiquidGlassCard.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LiquidGlassCard.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LiquidGlassCard.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LiquidGlassCard~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/LogSessionSheet.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LogSessionSheet.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LogSessionSheet.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LogSessionSheet.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LogSessionSheet.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LogSessionSheet.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LogSessionSheet.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LogSessionSheet.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/LogSessionSheet~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/MonthlyView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/MonthlyView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/MonthlyView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/MonthlyView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/MonthlyView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/MonthlyView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/MonthlyView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/MonthlyView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/MonthlyView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/OnboardingView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/OnboardingView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/OnboardingView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/OnboardingView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/OnboardingView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/OnboardingView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/OnboardingView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/OnboardingView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/OnboardingView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/PracticePlanView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticePlanView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticePlanView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticePlanView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticePlanView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticePlanView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticePlanView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticePlanView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticePlanView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/PracticeTimerView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeTimerView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeTimerView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeTimerView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeTimerView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeTimerView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeTimerView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeTimerView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PracticeTimerView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/PricingView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PricingView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PricingView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PricingView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PricingView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PricingView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PricingView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PricingView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/PricingView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/SettingsView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SettingsView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SettingsView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SettingsView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SettingsView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SettingsView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SettingsView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SettingsView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SettingsView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/SkillManagementView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillManagementView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillManagementView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillManagementView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillManagementView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillManagementView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillManagementView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillManagementView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillManagementView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/SkillPickerSheet.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillPickerSheet.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillPickerSheet.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillPickerSheet.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillPickerSheet.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillPickerSheet.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillPickerSheet.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillPickerSheet.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/SkillPickerSheet~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/StudentAssignmentsView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/StudentAssignmentsView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/StudentAssignmentsView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/StudentAssignmentsView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/StudentAssignmentsView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/StudentAssignmentsView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/StudentAssignmentsView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/StudentAssignmentsView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/StudentAssignmentsView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/TeacherView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/TeacherView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/Sources/Views/WeekDotsView.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WeekDotsView.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WeekDotsView.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WeekDotsView.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WeekDotsView.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WeekDotsView.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WeekDotsView.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WeekDotsView.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/WeekDotsView~partial.swiftmodule"
+  },
+  "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/mauriello/Dev/graft-ios/build/Graft.build/Debug-iphoneos/Graft.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}
