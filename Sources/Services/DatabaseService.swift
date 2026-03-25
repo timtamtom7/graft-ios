@@ -1288,6 +1288,146 @@ final class DatabaseService {
         default: return "night"
         }
     }
+
+    // MARK: - R7: Advanced AI Habit Intelligence
+
+    struct HabitAIInsights: Codable {
+        var streakPrediction: Int // predicted streak if current pace maintained
+        var riskLevel: String // "low", "medium", "high"
+        var optimalReminderTime: String? // "9:00 AM"
+        var difficultyScore: Int // 1-10
+        var weeklyPattern: [Bool] // [true,true,false,true,true,true,false]
+        var motivationalMessage: String
+        var suggestions: [String]
+    }
+
+    func getHabitAIInsights(for skillId: Int64) -> HabitAIInsights? {
+        let allSessions = getAllSessionsForAllSkills()
+        let sessions = allSessions.filter { $0.skillId == skillId }
+        guard sessions.count >= 5 else { return nil }
+
+        let recent = sessions.prefix(14) // last 2 weeks
+        let weeklyPattern = computeWeeklyPattern(sessions: Array(sessions))
+        let streakPred = predictStreak(sessions: Array(recent))
+        let risk = assessRiskLevel(sessions: Array(recent))
+        let optimalTime = findOptimalReminderTime(sessions: Array(sessions))
+        let difficulty = calculateDifficulty(sessions: Array(sessions))
+
+        var suggestions: [String] = []
+        if risk == "high" { suggestions.append("Consider reducing your daily goal to maintain momentum") }
+        if difficulty > 7 { suggestions.append("This habit feels difficult — try breaking it into smaller steps") }
+        if weeklyPattern.filter({ $0 }).count < 4 { suggestions.append("Try practicing at the same time each day for consistency") }
+
+        let motivationalMessage: String
+        let streakCount = sessions.prefix(7).filter { Calendar.current.isDate($0.practicedAt, inSameDayAs: sessions.first?.practicedAt ?? Date()) }.count
+        if streakCount >= 7 {
+            motivationalMessage = "Amazing! You've been consistent this week. Keep the momentum going!"
+        } else if streakCount >= 4 {
+            motivationalMessage = "You're building a great habit! Just a few more days to lock it in."
+        } else {
+            motivationalMessage = "Every session counts. Start small and build from here."
+        }
+
+        return HabitAIInsights(
+            streakPrediction: streakPred,
+            riskLevel: risk,
+            optimalReminderTime: optimalTime,
+            difficultyScore: difficulty,
+            weeklyPattern: weeklyPattern,
+            motivationalMessage: motivationalMessage,
+            suggestions: suggestions
+        )
+    }
+
+    private func computeWeeklyPattern(sessions: [Session]) -> [Bool] {
+        // Last 7 days, each day: did user practice?
+        var pattern = [Bool](repeating: false, count: 7)
+        let calendar = Calendar.current
+        for session in sessions {
+            let daysAgo = calendar.dateComponents([.day], from: session.practicedAt, to: Date()).day ?? 0
+            if daysAgo < 7 {
+                pattern[6 - daysAgo] = true
+            }
+        }
+        return pattern
+    }
+
+    private func predictStreak(sessions: [Session]) -> Int {
+        // Predict streak based on recent consistency
+        let recentDays = Set(sessions.map { Calendar.current.startOfDay(for: $0.practicedAt) })
+        let sortedDays = recentDays.sorted(by: >)
+        var predictedStreak = 0
+        var currentDate = Date()
+
+        for day in sortedDays {
+            let diff = Calendar.current.dateComponents([.day], from: day, to: currentDate).day ?? 0
+            if diff <= 1 {
+                predictedStreak += 1
+                currentDate = day
+            } else {
+                break
+            }
+        }
+        return predictedStreak + sessions.count / 3 // add some buffer based on session count
+    }
+
+    private func assessRiskLevel(sessions: [Session]) -> String {
+        // High risk: declining session frequency, low feel ratings
+        let recent = sessions.prefix(5)
+        let older = sessions.dropFirst(5).prefix(5)
+
+        if older.isEmpty { return "low" }
+
+        let recentAvgFeel = Double(recent.reduce(0) { $0 + $1.feelRating }) / Double(max(recent.count, 1))
+        let olderAvgFeel = Double(older.reduce(0) { $0 + $1.feelRating }) / Double(max(older.count, 1))
+
+        if recentAvgFeel < olderAvgFeel - 1.0 { return "high" }
+        if recentAvgFeel < olderAvgFeel - 0.5 { return "medium" }
+        return "low"
+    }
+
+    private func findOptimalReminderTime(sessions: [Session]) -> String? {
+        let calendar = Calendar.current
+        var hourFrequency: [Int: Int] = [:]
+
+        for session in sessions {
+            let hour = calendar.component(.hour, from: session.practicedAt)
+            hourFrequency[hour, default: 0] += 1
+        }
+
+        guard let bestHour = hourFrequency.max(by: { $0.value < $1.value })?.key else { return nil }
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+
+        var components = DateComponents()
+        components.hour = bestHour
+        components.minute = 0
+
+        if let date = calendar.date(from: components) {
+            return formatter.string(from: date)
+        }
+        return nil
+    }
+
+    private func calculateDifficulty(sessions: [Session]) -> Int {
+        // Difficulty based on: session abandonment rate, low feel ratings, short durations
+        guard !sessions.isEmpty else { return 5 }
+
+        let avgFeel = Double(sessions.reduce(0) { $0 + $1.feelRating }) / Double(sessions.count)
+        let avgDuration = Double(sessions.reduce(0) { $0 + $1.durationMinutes }) / Double(sessions.count)
+
+        // Lower feel + shorter duration = higher difficulty
+        var score = 5 // default medium
+
+        if avgFeel < 2.5 { score += 2 }
+        else if avgFeel < 3.5 { score += 1 }
+
+        if avgDuration < 10 { score += 1 }
+        else if avgDuration > 20 { score -= 1 }
+
+        return min(10, max(1, score))
+    }
 }
 
 // MARK: - TimerSession
