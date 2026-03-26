@@ -25,6 +25,7 @@
 		830013CB59B9C294E9D61808 /* LiquidGlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424B0CA1B6A234315F4F406 /* LiquidGlassCard.swift */; };
 		85CEB9204960299DB8A1EDE0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B646D2ABC680050833F904 /* Colors.swift */; };
 		8D4C179D1D74821C6442C353 /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F9466E5F85C2C6F315C34F /* PricingView.swift */; };
+		8F42247CB4DC9C81EC5383B1 /* GraftR12R20Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C7B959BDBCE75BE7809DA0 /* GraftR12R20Service.swift */; };
 		9044003518EBCB2A8AD1B1D3 /* LogSessionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1B74FB17056F715A73CB25 /* LogSessionSheet.swift */; };
 		9F6542A12D1B5DAC0A6D8DF7 /* WidgetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BD3A3A19AFF35C47D0CC7 /* WidgetDataManager.swift */; };
 		A2733C0918F18FA8ECBE3F52 /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE204247B542B5AF0D0D1E7B /* ExportService.swift */; };
@@ -32,6 +33,7 @@
 		AFB4B7316B5804A0021CB952 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39C034799025DAB43D2C9D5 /* Assets.xcassets */; };
 		B224DBF8402306243A569EE4 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D44B8E07469799D53DC956B /* DatabaseService.swift */; };
 		B4DCE16B0ED5C3A59DAEABF3 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = AD5A24317B596B05FF5B4FE3 /* SQLite */; };
+		B814C12729A75C8E95BBD9E8 /* GraftR12R20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98B402F7A5843787D06A0D /* GraftR12R20.swift */; };
 		C01BD788F3DF63B76390F79A /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E8DD66010D5FFED6145BB65A /* SQLite */; };
 		C752645C7D4D6B7509D58A99 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C3063F291F20ED32746BE0 /* Skill.swift */; };
 		C78CDE2EE8CE0AFC6FF0E6B1 /* PracticeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC51C934C9E100A8EFAFF9 /* PracticeModels.swift */; };
@@ -91,11 +93,13 @@
 		74E3726D1AC1E43C30C5FEBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		76BCD237F05A32C7BF6A540C /* Graft.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Graft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0CC460F6349AE55BB08AD9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		8F98B402F7A5843787D06A0D /* GraftR12R20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraftR12R20.swift; sourceTree = "<group>"; };
 		92DEA87853D03ED17470E265 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		99CCACB4402351609BCDD8F7 /* GraftWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = GraftWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B5B59D7F939DDE7DB0A4812 /* TeacherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherView.swift; sourceTree = "<group>"; };
 		9F92832146A45B5B03BE99FA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A1D01801FF11C715C2FA4422 /* WeekDotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDotsView.swift; sourceTree = "<group>"; };
+		A3C7B959BDBCE75BE7809DA0 /* GraftR12R20Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraftR12R20Service.swift; sourceTree = "<group>"; };
 		A8C03CB0A7F5A308AD6B6080 /* MacGraftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacGraftView.swift; sourceTree = "<group>"; };
 		B39C034799025DAB43D2C9D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4B646D2ABC680050833F904 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 		A58D0C2130FECA3DC4C13536 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8F98B402F7A5843787D06A0D /* GraftR12R20.swift */,
 				3ACC51C934C9E100A8EFAFF9 /* PracticeModels.swift */,
 				6DA1B6EE4620D76E73DC6165 /* Session.swift */,
 				F4C3063F291F20ED32746BE0 /* Skill.swift */,
@@ -258,6 +263,7 @@
 				403B181BD2325CBD66263839 /* AchievementService.swift */,
 				4D44B8E07469799D53DC956B /* DatabaseService.swift */,
 				BE204247B542B5AF0D0D1E7B /* ExportService.swift */,
+				A3C7B959BDBCE75BE7809DA0 /* GraftR12R20Service.swift */,
 				5B04C830DAE1588BD431F3FC /* SocialService.swift */,
 				FA2BD3A3A19AFF35C47D0CC7 /* WidgetDataManager.swift */,
 			);
@@ -402,6 +408,8 @@
 				A2733C0918F18FA8ECBE3F52 /* ExportService.swift in Sources */,
 				27C8E9392A6309A9C1AC1EA3 /* ExportView.swift in Sources */,
 				AF2A19381B9557B48BD10A05 /* GraftApp.swift in Sources */,
+				B814C12729A75C8E95BBD9E8 /* GraftR12R20.swift in Sources */,
+				8F42247CB4DC9C81EC5383B1 /* GraftR12R20Service.swift in Sources */,
 				5143187B168AE9D0873E8B7E /* HomeView.swift in Sources */,
 				830013CB59B9C294E9D61808 /* LiquidGlassCard.swift in Sources */,
 				9044003518EBCB2A8AD1B1D3 /* LogSessionSheet.swift in Sources */,
