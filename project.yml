@@ -26,6 +26,7 @@ targets:
     sources:
       - path: Sources
       - path: Resources
+      - path: Graft
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.graft.app

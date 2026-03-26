@@ -1,8 +1,29 @@
 import SwiftUI
 
+// MARK: - Local Mock Types (macOS self-contained)
+
+struct MacSkill: Identifiable, Equatable, Hashable {
+    var id: Int64?
+    var name: String
+    var emoji: String
+    var isActive: Bool
+}
+
+struct MacSession: Identifiable, Equatable {
+    var id: Int64?
+    var skillId: Int64
+    var durationMinutes: Int
+    var feelRating: Int
+    var notes: String?
+    var practicedAt: Date
+    var isTimerBased: Bool = false
+}
+
+// MARK: - MacGraftView
+
 struct MacGraftView: View {
-    @State private var skills: [Skill] = []
-    @State private var selectedSkill: Skill?
+    @State private var skills: [MacSkill] = []
+    @State private var selectedSkill: MacSkill?
     @State private var showLogSession = false
     @State private var showSettings = false
     @State private var showAnalytics = false
@@ -72,20 +93,23 @@ struct MacGraftView: View {
     }
 
     private func loadSkills() {
-        // Load skills from database
-        // For now, use sample data
+        // Load skills — use sample data for macOS preview
         skills = [
-            Skill(id: 1, name: "Piano", emoji: "🎹", isActive: true),
-            Skill(id: 2, name: "Guitar", emoji: "🎸", isActive: true),
-            Skill(id: 3, name: "Coding", emoji: "💻", isActive: true),
+            MacSkill(id: 1, name: "Piano", emoji: "🎹", isActive: true),
+            MacSkill(id: 2, name: "Guitar", emoji: "🎸", isActive: true),
+            MacSkill(id: 3, name: "Coding", emoji: "💻", isActive: true),
         ]
+        selectedSkill = skills.first
     }
 }
 
+// MARK: - Skill Detail View
+
 struct SkillDetailMacView: View {
-    let skill: Skill
+    let skill: MacSkill
     let onLogSession: () -> Void
-    @State private var recentSessions: [Session] = []
+
+    @State private var recentSessions: [MacSession] = []
     @State private var weeklyTotalMinutes = 0
     @State private var streakDays = 0
 
@@ -146,7 +170,7 @@ struct SkillDetailMacView: View {
                     } else {
                         ForEach(recentSessions.prefix(5)) { session in
                             HStack {
-                                Text(formattedDate(session.date))
+                                Text(formattedDate(session.practicedAt))
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                                     .frame(width: 120, alignment: .leading)
@@ -175,6 +199,27 @@ struct SkillDetailMacView: View {
             }
             .padding(24)
         }
+        .onAppear {
+            loadMockSessions()
+        }
+    }
+
+    private func loadMockSessions() {
+        // Generate sample recent sessions for preview
+        let calendar = Calendar.current
+        recentSessions = (0..<3).compactMap { offset in
+            guard let date = calendar.date(byAdding: .day, value: -offset * 2, to: Date()) else { return nil }
+            return MacSession(
+                id: Int64(offset),
+                skillId: skill.id ?? 0,
+                durationMinutes: [25, 45, 30, 60][offset % 4],
+                feelRating: [3, 4, 5, 4][offset % 4],
+                notes: offset == 0 ? "Great practice session!" : nil,
+                practicedAt: date
+            )
+        }
+        weeklyTotalMinutes = recentSessions.reduce(0) { $0 + $1.durationMinutes }
+        streakDays = 5
     }
 
     private func formattedDate(_ date: Date) -> String {
@@ -184,6 +229,8 @@ struct SkillDetailMacView: View {
         return formatter.string(from: date)
     }
 }
+
+// MARK: - Stat Card
 
 struct MacStatCard: View {
     let value: String
@@ -210,6 +257,8 @@ struct MacStatCard: View {
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
+
+// MARK: - Color Extension
 
 extension Color {
     init(hex: String) {
