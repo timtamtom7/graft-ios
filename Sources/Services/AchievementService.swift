@@ -59,29 +59,40 @@ final class AchievementService: ObservableObject {
     // MARK: - Achievement Checking
 
     func checkAchievements(streakDays: Int, totalHours: Double) {
-        for achievement in AchievementService.predefinedAchievements {
+        var changed = false
+
+        for (index, achievement) in achievements.enumerated() {
+            guard !unlockedAchievements.contains(achievement.id) else { continue }
+
             var updated = achievement
 
             switch achievement.type {
             case .streak:
-                if streakDays >= achievement.requirement && !unlockedAchievements.contains(achievement.id) {
+                if streakDays >= achievement.requirement {
                     updated.isUnlocked = true
                     updated.unlockedAt = Date()
                     unlockedAchievements.insert(achievement.id)
                     triggerHaptic()
+                    achievements[index] = updated
+                    changed = true
                 }
             case .totalHours:
-                if Int(totalHours) >= achievement.requirement && !unlockedAchievements.contains(achievement.id) {
+                if Int(totalHours) >= achievement.requirement {
                     updated.isUnlocked = true
                     updated.unlockedAt = Date()
                     unlockedAchievements.insert(achievement.id)
                     triggerHaptic()
+                    achievements[index] = updated
+                    changed = true
                 }
             default:
                 break
             }
         }
-        saveAchievements()
+
+        if changed {
+            saveAchievements()
+        }
     }
 
     // MARK: - Custom Milestones
