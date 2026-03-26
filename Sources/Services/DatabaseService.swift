@@ -638,6 +638,19 @@ final class DatabaseService {
         }
     }
 
+    /// Delete a session by ID
+    func deleteSession(id: Int64) -> Bool {
+        guard let db = db else { return false }
+        do {
+            let row = sessions.filter(sessionId == id)
+            try db.run(row.delete())
+            return true
+        } catch {
+            print("deleteSession error: \(error)")
+            return false
+        }
+    }
+
     // MARK: - Analytics
 
     func getPersonalRecords() -> PersonalRecord {

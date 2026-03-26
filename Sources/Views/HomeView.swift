@@ -16,6 +16,7 @@ struct HomeView: View {
     @State private var showPracticeTimer: Bool = false
     @State private var showAnalytics: Bool = false
     @State private var showPracticePlan: Bool = false
+    @State private var showSessionHistory: Bool = false
     @State private var showSettings: Bool = false
     @State private var showTeacher: Bool = false
     @State private var showStudentAssignments: Bool = false
@@ -109,6 +110,14 @@ struct HomeView: View {
                                 .font(.system(size: 14))
                                 .foregroundColor(GraftColors.accent)
                         }
+
+                        Button {
+                            showSessionHistory = true
+                        } label: {
+                            Image(systemName: "clock.arrow.circlepath")
+                                .font(.system(size: 14))
+                                .foregroundColor(GraftColors.accent)
+                        }
                     }
                 }
             }
@@ -163,6 +172,9 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showSettings) {
                 SettingsView()
+            }
+            .sheet(isPresented: $showSessionHistory) {
+                SessionHistoryView(skills: skills.isEmpty ? (primarySkill.map { [$0] } ?? []) : skills)
             }
             .sheet(isPresented: $showTeacher) {
                 TeacherView()

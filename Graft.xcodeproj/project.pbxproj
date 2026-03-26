@@ -21,6 +21,7 @@
 		5C063F5E37061CDC64A9809F /* SkillPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CCB548F5F98CE257B2F3D /* SkillPickerSheet.swift */; };
 		5FDCBD4FFF73E6F046F4EB6C /* SkillManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A3095FB159F8E2F2A8DAF6 /* SkillManagementView.swift */; };
 		6F5A686BECD425A88948024D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F92832146A45B5B03BE99FA /* SettingsView.swift */; };
+		7AE8F17B72B144D8CA6814BE /* SessionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE386B596196FEE90C76F07D /* SessionHistoryView.swift */; };
 		7FAA102CDD9E4BC71D84161F /* GraftWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 99CCACB4402351609BCDD8F7 /* GraftWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		830013CB59B9C294E9D61808 /* LiquidGlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424B0CA1B6A234315F4F406 /* LiquidGlassCard.swift */; };
 		85CEB9204960299DB8A1EDE0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B646D2ABC680050833F904 /* Colors.swift */; };
@@ -42,6 +43,7 @@
 		D1762CFF220148FB95975C59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C8292A5EB0ACECE63A6264 /* ContentView.swift */; };
 		D372C28B1E4B95A9A9D7EE1E /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FC5706D6C8A750A3D55CA /* MonthlyView.swift */; };
 		D73AA43ECCED491C2A1B0B1B /* MacGraftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C03CB0A7F5A308AD6B6080 /* MacGraftView.swift */; };
+		E21761CF5B713A0254AF3CAC /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7749023E57801F0295E750CC /* ReminderService.swift */; };
 		E2AFB0DB1ED1F7638AD973BD /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 658BA1569DB9A422B6CC927F /* PrivacyInfo.xcprivacy */; };
 		E3A298F836E49DC65D6CE076 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A74178DE69F6ECA5428FF06 /* AnalyticsView.swift */; };
 		ECF4702AC5C70827179EAE7A /* StudentAssignmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18AA78E368D44DAA91109EE /* StudentAssignmentsView.swift */; };
@@ -95,6 +97,7 @@
 		6DA1B6EE4620D76E73DC6165 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		74E3726D1AC1E43C30C5FEBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		76BCD237F05A32C7BF6A540C /* Graft.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Graft.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7749023E57801F0295E750CC /* ReminderService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
 		7A0CC460F6349AE55BB08AD9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8F98B402F7A5843787D06A0D /* GraftR12R20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraftR12R20.swift; sourceTree = "<group>"; };
 		92DEA87853D03ED17470E265 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 		BE204247B542B5AF0D0D1E7B /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
 		BE5E7FE7E676A173AB8CADBA /* PracticeTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeTimerView.swift; sourceTree = "<group>"; };
 		C18AA78E368D44DAA91109EE /* StudentAssignmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAssignmentsView.swift; sourceTree = "<group>"; };
+		CE386B596196FEE90C76F07D /* SessionHistoryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SessionHistoryView.swift; sourceTree = "<group>"; };
 		D25E0B9A8E82D7128C27547C /* GraftWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraftWidget.swift; sourceTree = "<group>"; };
 		D3C18373403F86105BE97B7F /* APPSTORE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = APPSTORE.md; sourceTree = "<group>"; };
 		D940D0A29789AEBB1D4CF6E4 /* TeacherModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherModels.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 				C18AA78E368D44DAA91109EE /* StudentAssignmentsView.swift */,
 				9B5B59D7F939DDE7DB0A4812 /* TeacherView.swift */,
 				A1D01801FF11C715C2FA4422 /* WeekDotsView.swift */,
+				CE386B596196FEE90C76F07D /* SessionHistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				A3C7B959BDBCE75BE7809DA0 /* GraftR12R20Service.swift */,
 				5B04C830DAE1588BD431F3FC /* SocialService.swift */,
 				FA2BD3A3A19AFF35C47D0CC7 /* WidgetDataManager.swift */,
+				7749023E57801F0295E750CC /* ReminderService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -384,6 +390,7 @@
 			packageReferences = (
 				41ADFC98E908C2E31845FABA /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
+			productRefGroup = 4EFAF209E6690A3AE031AD47 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -444,6 +451,8 @@
 				CA375B205C4A945914B39D1C /* TeacherView.swift in Sources */,
 				F37E27E4223B8AE325FBF686 /* WeekDotsView.swift in Sources */,
 				9F6542A12D1B5DAC0A6D8DF7 /* WidgetDataManager.swift in Sources */,
+				E21761CF5B713A0254AF3CAC /* ReminderService.swift in Sources */,
+				7AE8F17B72B144D8CA6814BE /* SessionHistoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,7 +576,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Graft Widget";
 				INFOPLIST_KEY_NSExtension = "";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graft.app.widget;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -628,7 +641,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Graft Widget";
 				INFOPLIST_KEY_NSExtension = "";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.graft.app.widget;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

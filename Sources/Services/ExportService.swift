@@ -438,4 +438,250 @@ final class ExportService {
         }
         return "\(mins)m"
     }
+
+    // MARK: - JSON Backup
+
+    /// Export all app data as a JSON file for backup
+    func exportJSON() -> URL? {
+        let skills = DatabaseService.shared.getAllSkills()
+        var backup = GraftBackupData(
+            version: 1,
+            exportedAt: Date(),
+            skills: [],
+            sessions: [],
+            goals: [],
+            plans: []
+        )
+
+        for skill in skills {
+            guard let skillId = skill.id else { continue }
+
+            let skillData = GraftSkillBackup(
+                id: skillId,
+                name: skill.name,
+                emoji: skill.emoji,
+                isActive: skill.isActive,
+                createdAt: skill.createdAt
+            )
+            backup.skills.append(skillData)
+
+            let sessions = DatabaseService.shared.getAllSessions(for: skillId)
+            for session in sessions {
+                let sessionData = GraftSessionBackup(
+                    id: session.id ?? 0,
+                    skillId: session.skillId,
+                    durationMinutes: session.durationMinutes,
+                    feelRating: session.feelRating,
+                    notes: session.notes,
+                    practicedAt: session.practicedAt,
+                    isTimerBased: session.isTimerBased
+                )
+                backup.sessions.append(sessionData)
+            }
+        }
+
+        let allGoals = [DatabaseService.shared.getActiveGoal(for: .weekly), DatabaseService.shared.getActiveGoal(for: .monthly)]
+            .compactMap { $0 }
+        for goal in allGoals {
+            if let goalId = goal.id {
+                let goalData = GraftGoalBackup(
+                    id: goalId,
+                    type: goal.type.rawValue,
+                    targetMinutes: goal.targetMinutes,
+                    currentMinutes: goal.currentMinutes,
+                    periodStart: goal.periodStart,
+                    periodEnd: goal.periodEnd,
+                    createdAt: goal.createdAt
+                )
+                backup.goals.append(goalData)
+            }
+        }
+
+        let plans = DatabaseService.shared.getAllPlans()
+        for plan in plans {
+            if let planId = plan.id {
+                let planData = GraftPlanBackup(
+                    id: planId,
+                    skillId: plan.skillId,
+                    skillName: plan.skillName,
+                    skillEmoji: plan.skillEmoji,
+                    scheduledAt: plan.scheduledAt,
+                    durationMinutes: plan.durationMinutes,
+                    isCompleted: plan.isCompleted,
+                    createdAt: plan.createdAt
+                )
+                backup.plans.append(planData)
+            }
+        }
+
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+
+        guard let jsonData = try? encoder.encode(backup) else {
+            print("Failed to encode backup JSON")
+            return nil
+        }
+
+        let fileName = "graft_backup_\(formatDateForFilename(Date())).json"
+        let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
+
+        do {
+            try jsonData.write(to: tempURL)
+            return tempURL
+        } catch {
+            print("JSON export error: \(error)")
+            return nil
+        }
+    }
+
+    /// Import data from a JSON backup file
+    /// Returns the number of items imported, or nil on failure
+    func importJSON(from url: URL) async -> Int? {
+        guard let data = try? Data(contentsOf: url) else {
+            print("Could not read backup file")
+            return nil
+        }
+
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+
+        guard let backup = try? decoder.decode(GraftBackupData.self, from: data) else {
+            print("Could not parse backup JSON")
+            return nil
+        }
+
+        var importedCount = 0
+
+        // Import skills first (needed for session references)
+        var skillIdMap: [Int64: Int64] = [:] // old ID -> new ID
+        for skillData in backup.skills {
+            var skill = Skill(
+                id: nil, // create new
+                name: skillData.name,
+                emoji: skillData.emoji,
+                isActive: skillData.isActive,
+                createdAt: skillData.createdAt
+            )
+            if DatabaseService.shared.saveSkill(&skill), let newId = skill.id {
+                skillIdMap[skillData.id] = newId
+                importedCount += 1
+            }
+        }
+
+        // Import sessions
+        for sessionData in backup.sessions {
+            guard let newSkillId = skillIdMap[sessionData.skillId] else { continue }
+            var session = Session(
+                id: nil,
+                skillId: newSkillId,
+                durationMinutes: sessionData.durationMinutes,
+                feelRating: sessionData.feelRating,
+                notes: sessionData.notes,
+                practicedAt: sessionData.practicedAt,
+                isTimerBased: sessionData.isTimerBased
+            )
+            if DatabaseService.shared.saveSession(&session) {
+                importedCount += 1
+            }
+        }
+
+        // Import goals
+        for goalData in backup.goals {
+            let goalType = UserGoal.GoalType(rawValue: goalData.type) ?? .weekly
+            var goal = UserGoal(
+                id: nil,
+                type: goalType,
+                targetMinutes: goalData.targetMinutes,
+                currentMinutes: goalData.currentMinutes,
+                periodStart: goalData.periodStart,
+                periodEnd: goalData.periodEnd,
+                createdAt: goalData.createdAt
+            )
+            if DatabaseService.shared.saveGoal(&goal) {
+                importedCount += 1
+            }
+        }
+
+        // Import plans
+        for planData in backup.plans {
+            guard let newSkillId = skillIdMap[planData.skillId] else { continue }
+            var plan = PracticePlan(
+                id: nil,
+                skillId: newSkillId,
+                skillName: planData.skillName,
+                skillEmoji: planData.skillEmoji,
+                scheduledAt: planData.scheduledAt,
+                durationMinutes: planData.durationMinutes,
+                isCompleted: planData.isCompleted,
+                createdAt: planData.createdAt
+            )
+            if DatabaseService.shared.savePlan(&plan) {
+                importedCount += 1
+            }
+        }
+
+        // Refresh widget
+        WidgetDataManager.shared.refreshWidgetData()
+
+        return importedCount
+    }
+
+    /// Get a preview of what's in a backup file (without fully importing)
+    func previewBackup(at url: URL) -> GraftBackupData? {
+        guard let data = try? Data(contentsOf: url) else { return nil }
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return try? decoder.decode(GraftBackupData.self, from: data)
+    }
+}
+
+// MARK: - Backup Data Models
+
+struct GraftBackupData: Codable {
+    let version: Int
+    let exportedAt: Date
+    var skills: [GraftSkillBackup]
+    var sessions: [GraftSessionBackup]
+    var goals: [GraftGoalBackup]
+    var plans: [GraftPlanBackup]
+}
+
+struct GraftSkillBackup: Codable, Identifiable {
+    let id: Int64
+    let name: String
+    let emoji: String
+    let isActive: Bool
+    let createdAt: Date
+}
+
+struct GraftSessionBackup: Codable {
+    let id: Int64
+    let skillId: Int64
+    let durationMinutes: Int
+    let feelRating: Int
+    let notes: String?
+    let practicedAt: Date
+    let isTimerBased: Bool
+}
+
+struct GraftGoalBackup: Codable {
+    let id: Int64
+    let type: String
+    let targetMinutes: Int
+    let currentMinutes: Int
+    let periodStart: Date
+    let periodEnd: Date
+    let createdAt: Date
+}
+
+struct GraftPlanBackup: Codable {
+    let id: Int64
+    let skillId: Int64
+    let skillName: String
+    let skillEmoji: String
+    let scheduledAt: Date
+    let durationMinutes: Int
+    let isCompleted: Bool
+    let createdAt: Date
 }
