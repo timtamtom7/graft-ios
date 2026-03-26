@@ -99,7 +99,10 @@ final class DatabaseService {
 
     private func setupDatabase() {
         do {
-            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+            guard let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
+                print("Database setup error: could not find documents directory")
+                return
+            }
             db = try Connection("\(path)/graft.sqlite3")
             try createTables()
         } catch {
