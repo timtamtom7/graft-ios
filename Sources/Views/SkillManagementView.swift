@@ -252,13 +252,15 @@ struct ActiveSkillRow: View {
             Spacer()
 
             Button {
+                HapticFeedback.selection()
                 onDeactivate()
             } label: {
                 Image(systemName: "xmark.circle.fill")
-                    .font(.system(size: 20))
+                    .font(.system(size: Theme.IconSize.xlarge))
                     .foregroundColor(GraftColors.textSecondary.opacity(0.5))
             }
             .buttonStyle(.plain)
+            .accessibilityLabel("Deactivate \(skill.name)")
         }
         .padding(16)
         .background(GraftColors.surface)
@@ -306,12 +308,14 @@ struct InactiveSkillRow: View {
             Spacer()
 
             Button {
+                HapticFeedback.success()
                 onActivate()
             } label: {
                 Text("Re-add")
-                    .font(.system(size: 12, weight: .medium))
+                    .font(.system(size: Theme.FontSize.caption, weight: .medium))
                     .foregroundColor(GraftColors.accent)
             }
+            .accessibilityLabel("Reactivate \(skill.name)")
         }
         .padding(14)
         .background(GraftColors.surface.opacity(0.5))

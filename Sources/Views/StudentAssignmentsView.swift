@@ -316,19 +316,21 @@ struct StudentAssignmentCard: View {
 
                     if progressPercent >= 1.0 && !assignment.isCompleted {
                         Button {
+                            HapticFeedback.success()
                             onComplete()
                         } label: {
                             HStack {
                                 Image(systemName: "checkmark.circle")
                                 Text("Complete")
                             }
-                            .font(.system(size: 13, weight: .medium))
+                            .font(.system(size: Theme.FontSize.footnote, weight: .medium))
                             .foregroundColor(GraftColors.success)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 10)
+                            .padding(.horizontal, Theme.Spacing.xl)
+                            .padding(.vertical, Theme.Spacing.md)
                             .background(GraftColors.success.opacity(0.15))
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                            .clipShape(RoundedRectangle(cornerRadius: Theme.CornerRadius.small))
                         }
+                        .accessibilityLabel("Mark assignment as complete")
                     }
                 }
             }

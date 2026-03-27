@@ -95,28 +95,32 @@ struct SkillPickerSheet: View {
     }
 
     private func skillRow(name: String, emoji: String, onTap: @escaping () -> Void) -> some View {
-        Button(action: onTap) {
-            HStack(spacing: 14) {
+        Button {
+            HapticFeedback.selection()
+            onTap()
+        } label: {
+            HStack(spacing: Theme.Spacing.xl) {
                 Text(emoji)
-                    .font(.system(size: 28))
+                    .font(.system(size: Theme.IconSize.huge))
                     .frame(width: 44, height: 44)
                     .background(GraftColors.surface)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .clipShape(RoundedRectangle(cornerRadius: Theme.CornerRadius.small))
 
                 Text(name)
-                    .font(.system(size: 16, weight: .medium))
+                    .font(.system(size: Theme.FontSize.headline, weight: .medium))
                     .foregroundColor(GraftColors.textPrimary)
 
                 Spacer()
 
                 Image(systemName: "chevron.right")
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(.system(size: Theme.FontSize.footnote, weight: .semibold))
                     .foregroundColor(GraftColors.textSecondary)
             }
-            .padding(14)
+            .padding(Theme.Spacing.xl)
             .background(GraftColors.surface)
-            .clipShape(RoundedRectangle(cornerRadius: 14))
+            .clipShape(RoundedRectangle(cornerRadius: Theme.CornerRadius.medium))
         }
+        .accessibilityLabel("\(emoji) \(name)")
     }
 
     // MARK: - Custom Skill Input

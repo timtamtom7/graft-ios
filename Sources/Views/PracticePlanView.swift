@@ -25,10 +25,14 @@ struct PracticePlanView: View {
                         .foregroundColor(GraftColors.accent)
                 }
                 ToolbarItem(placement: .primaryAction) {
-                    Button { showNewPlan = true } label: {
+                    Button {
+                        HapticFeedback.light()
+                        showNewPlan = true
+                    } label: {
                         Image(systemName: "plus.circle.fill")
                             .foregroundColor(GraftColors.accent)
                     }
+                    .accessibilityLabel("Add new practice plan")
                 }
             }
             .sheet(isPresented: $showNewPlan) {
@@ -163,24 +167,29 @@ struct PlannedSessionCard: View {
     let onDelete: () -> Void
 
     var body: some View {
-        Button(action: onTap) {
+        Button {
+            HapticFeedback.light()
+            onTap()
+        } label: {
             cardContent
         }
-        .buttonStyle(.plain)
+        .buttonStyle(GraftCardButtonStyle())
+        .accessibilityLabel("\(plan.skillName), \(formattedTime), \(plan.isCompleted ? "completed" : "not completed")")
+        .accessibilityHint("Double tap to edit")
         .contextMenu { contextMenuContent }
     }
 
     private var cardContent: some View {
-        HStack(spacing: 14) {
+        HStack(spacing: Theme.Spacing.xl) {
             Text(plan.skillEmoji)
-                .font(.system(size: 24))
+                .font(.system(size: Theme.IconSize.huge))
                 .frame(width: 44, height: 44)
                 .background(GraftColors.surfaceRaised)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .clipShape(RoundedRectangle(cornerRadius: Theme.CornerRadius.small))
 
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: Theme.Spacing.xxs) {
                 Text(plan.skillName)
-                    .font(.system(size: 15, weight: .semibold))
+                    .font(.system(size: Theme.FontSize.subheadline, weight: .semibold))
                     .foregroundColor(GraftColors.textPrimary)
                 timeLabel
             }
@@ -188,19 +197,19 @@ struct PlannedSessionCard: View {
             Spacer()
             completionIndicator
         }
-        .padding(16)
+        .padding(Theme.Spacing.xl)
         .background(GraftColors.surface)
-        .clipShape(RoundedRectangle(cornerRadius: 14))
+        .clipShape(RoundedRectangle(cornerRadius: Theme.CornerRadius.large))
         .overlay(cardOverlay)
     }
 
     private var timeLabel: some View {
-        HStack(spacing: 6) {
-            Image(systemName: "clock").font(.system(size: 10))
-            Text(formattedTime).font(.system(size: 12))
-            Text("·").font(.system(size: 12))
-            Image(systemName: "timer").font(.system(size: 10))
-            Text("\(plan.durationMinutes)m").font(.system(size: 12))
+        HStack(spacing: Theme.Spacing.xxs) {
+            Image(systemName: "clock").font(.system(size: Theme.FontSize.caption2))
+            Text(formattedTime).font(.system(size: Theme.FontSize.caption))
+            Text("·").font(.system(size: Theme.FontSize.caption))
+            Image(systemName: "timer").font(.system(size: Theme.FontSize.caption2))
+            Text("\(plan.durationMinutes)m").font(.system(size: Theme.FontSize.caption))
         }
         .foregroundColor(GraftColors.textSecondary)
     }
@@ -208,12 +217,16 @@ struct PlannedSessionCard: View {
     @ViewBuilder
     private var completionIndicator: some View {
         if !plan.isCompleted {
-            Button { onComplete() } label: {
-                Image(systemName: "checkmark.circle").font(.system(size: 22)).foregroundColor(GraftColors.accent)
+            Button {
+                HapticFeedback.success()
+                onComplete()
+            } label: {
+                Image(systemName: "checkmark.circle").font(.system(size: Theme.IconSize.xlarge)).foregroundColor(GraftColors.accent)
             }
             .buttonStyle(.plain)
+            .accessibilityLabel("Mark \(plan.skillName) as complete")
         } else {
-            Image(systemName: "checkmark.circle.fill").font(.system(size: 22)).foregroundColor(GraftColors.success)
+            Image(systemName: "checkmark.circle.fill").font(.system(size: Theme.IconSize.xlarge)).foregroundColor(GraftColors.success)
         }
     }
 
@@ -301,15 +314,16 @@ struct NewPlanSheet: View {
     private func skillPill(skill: Skill) -> some View {
         let isSelected = selectedSkill?.id == skill.id
         return Button {
+            HapticFeedback.selection()
             selectedSkill = skill
         } label: {
             HStack(spacing: 6) {
-                Text(skill.emoji).font(.system(size: 14))
-                Text(skill.name).font(.system(size: 13, weight: .medium))
+                Text(skill.emoji).font(.system(size: Theme.FontSize.footnote))
+                Text(skill.name).font(.system(size: Theme.FontSize.footnote, weight: .medium))
             }
             .foregroundColor(isSelected ? .white : GraftColors.textSecondary)
-            .padding(.horizontal, 14)
-            .padding(.vertical, 8)
+            .padding(.horizontal, Theme.Spacing.lg)
+            .padding(.vertical, Theme.Spacing.xs)
             .background {
                 if isSelected {
                     LinearGradient(colors: [GraftColors.accent, GraftColors.accentMuted], startPoint: .leading, endPoint: .trailing)
@@ -319,6 +333,7 @@ struct NewPlanSheet: View {
             }
             .clipShape(Capsule())
         }
+        .accessibilityLabel("\(skill.emoji) \(skill.name)")
     }
 
     private var dateSection: some View {
@@ -346,13 +361,14 @@ struct NewPlanSheet: View {
     private func durationPill(_ duration: Int) -> some View {
         let isSelected = selectedDuration == duration
         return Button {
+            HapticFeedback.selection()
             selectedDuration = duration
         } label: {
             Text("\(duration)m")
-                .font(.system(size: 13, weight: .medium, design: .monospaced))
+                .font(.system(size: Theme.FontSize.footnote, weight: .medium, design: .monospaced))
                 .foregroundColor(isSelected ? .white : GraftColors.textSecondary)
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 12)
+                .padding(.vertical, Theme.Spacing.md)
                 .background {
                     if isSelected {
                         LinearGradient(colors: [GraftColors.accent, GraftColors.accentMuted], startPoint: .leading, endPoint: .trailing)
@@ -360,8 +376,9 @@ struct NewPlanSheet: View {
                         Rectangle().fill(GraftColors.surface)
                     }
                 }
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .clipShape(RoundedRectangle(cornerRadius: Theme.CornerRadius.small))
         }
+        .accessibilityLabel("\(duration) minutes")
     }
 
     private var saveButton: some View {

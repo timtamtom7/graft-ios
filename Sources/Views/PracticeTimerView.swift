@@ -188,13 +188,14 @@ struct PracticeTimerView: View {
     // MARK: - Preset Selector
 
     private var presetSelector: some View {
-        HStack(spacing: 10) {
+        HStack(spacing: Theme.Spacing.sm) {
             ForEach(presets, id: \.self) { minutes in
                 Button {
+                    HapticFeedback.selection()
                     selectedDuration = minutes
                 } label: {
                     Text("\(minutes)m")
-                        .font(.system(size: 13, weight: .medium, design: .monospaced))
+                        .font(.system(size: Theme.FontSize.footnote, weight: .medium, design: .monospaced))
                         .foregroundColor(selectedDuration == minutes ? .white : GraftColors.textSecondary)
                         .frame(width: 56, height: 40)
                         .background {
@@ -204,8 +205,9 @@ struct PracticeTimerView: View {
                                 Rectangle().fill(GraftColors.surface)
                             }
                         }
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .clipShape(RoundedRectangle(cornerRadius: Theme.CornerRadius.small))
                 }
+                .accessibilityLabel("\(minutes) minutes")
             }
         }
     }
@@ -213,50 +215,56 @@ struct PracticeTimerView: View {
     // MARK: - Action Buttons
 
     private var actionButtons: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: Theme.Spacing.md) {
             if isRunning {
                 Button {
+                    HapticFeedback.success()
                     stopTimer()
                     showFeelRating = true
                 } label: {
                     Text("End Session")
-                        .font(.system(size: 15, weight: .semibold))
+                        .font(.system(size: Theme.FontSize.subheadline, weight: .semibold))
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 14)
+                        .padding(.vertical, Theme.Spacing.xl)
                         .background(
                             LinearGradient(colors: [GraftColors.accent, GraftColors.accentMuted], startPoint: .leading, endPoint: .trailing)
                         )
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .clipShape(RoundedRectangle(cornerRadius: Theme.CornerRadius.medium))
                 }
+                .accessibilityLabel("End practice session")
             } else {
                 Button {
+                    HapticFeedback.medium()
                     startTimer()
                 } label: {
                     HStack {
                         Image(systemName: "play.fill")
                         Text("Start Practice")
                     }
-                    .font(.system(size: 15, weight: .semibold))
+                    .font(.system(size: Theme.FontSize.subheadline, weight: .semibold))
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 14)
+                    .padding(.vertical, Theme.Spacing.xl)
                     .background(
                         LinearGradient(colors: [GraftColors.accent, GraftColors.accentMuted], startPoint: .leading, endPoint: .trailing)
                     )
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .clipShape(RoundedRectangle(cornerRadius: Theme.CornerRadius.medium))
                 }
                 .disabled(selectedSkill == nil)
+                .accessibilityLabel("Start practice timer")
             }
 
             if elapsedSeconds > 0 && !isRunning {
                 Button {
+                    HapticFeedback.light()
                     showSessionLog = true
                 } label: {
                     Text("Log This Session")
-                        .font(.system(size: 14, weight: .medium))
+                        .font(.system(size: Theme.FontSize.footnote, weight: .medium))
                         .foregroundColor(GraftColors.textSecondary)
                 }
+                .accessibilityLabel("Log this practice session")
             }
         }
     }

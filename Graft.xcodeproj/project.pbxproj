@@ -21,7 +21,6 @@
 		5C063F5E37061CDC64A9809F /* SkillPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51CCB548F5F98CE257B2F3D /* SkillPickerSheet.swift */; };
 		5FDCBD4FFF73E6F046F4EB6C /* SkillManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A3095FB159F8E2F2A8DAF6 /* SkillManagementView.swift */; };
 		6F5A686BECD425A88948024D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F92832146A45B5B03BE99FA /* SettingsView.swift */; };
-		7AE8F17B72B144D8CA6814BE /* SessionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE386B596196FEE90C76F07D /* SessionHistoryView.swift */; };
 		7FAA102CDD9E4BC71D84161F /* GraftWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 99CCACB4402351609BCDD8F7 /* GraftWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		830013CB59B9C294E9D61808 /* LiquidGlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424B0CA1B6A234315F4F406 /* LiquidGlassCard.swift */; };
 		85CEB9204960299DB8A1EDE0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B646D2ABC680050833F904 /* Colors.swift */; };
@@ -30,12 +29,15 @@
 		9044003518EBCB2A8AD1B1D3 /* LogSessionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1B74FB17056F715A73CB25 /* LogSessionSheet.swift */; };
 		9F6542A12D1B5DAC0A6D8DF7 /* WidgetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BD3A3A19AFF35C47D0CC7 /* WidgetDataManager.swift */; };
 		A2733C0918F18FA8ECBE3F52 /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE204247B542B5AF0D0D1E7B /* ExportService.swift */; };
+		A9BE2E8FAE9E5D7453CCD2D0 /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68A35285B72A8D0EB3537A1 /* ReminderService.swift */; };
 		AF2A19381B9557B48BD10A05 /* GraftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E0AF8989DF2FBFC868634 /* GraftApp.swift */; };
 		AFB4B7316B5804A0021CB952 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39C034799025DAB43D2C9D5 /* Assets.xcassets */; };
 		B224DBF8402306243A569EE4 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D44B8E07469799D53DC956B /* DatabaseService.swift */; };
 		B4DCE16B0ED5C3A59DAEABF3 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = AD5A24317B596B05FF5B4FE3 /* SQLite */; };
 		B814C12729A75C8E95BBD9E8 /* GraftR12R20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98B402F7A5843787D06A0D /* GraftR12R20.swift */; };
+		BB35F2BF73C326209917B92D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875DCFCD0E905AB44CB372A0 /* Theme.swift */; };
 		C01BD788F3DF63B76390F79A /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E8DD66010D5FFED6145BB65A /* SQLite */; };
+		C10BC76DDECA18B778B8B175 /* SessionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDF2B0508F45AB414CBFCBA /* SessionHistoryView.swift */; };
 		C752645C7D4D6B7509D58A99 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C3063F291F20ED32746BE0 /* Skill.swift */; };
 		C78CDE2EE8CE0AFC6FF0E6B1 /* PracticeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC51C934C9E100A8EFAFF9 /* PracticeModels.swift */; };
 		CA375B205C4A945914B39D1C /* TeacherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5B59D7F939DDE7DB0A4812 /* TeacherView.swift */; };
@@ -43,7 +45,6 @@
 		D1762CFF220148FB95975C59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C8292A5EB0ACECE63A6264 /* ContentView.swift */; };
 		D372C28B1E4B95A9A9D7EE1E /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650FC5706D6C8A750A3D55CA /* MonthlyView.swift */; };
 		D73AA43ECCED491C2A1B0B1B /* MacGraftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C03CB0A7F5A308AD6B6080 /* MacGraftView.swift */; };
-		E21761CF5B713A0254AF3CAC /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7749023E57801F0295E750CC /* ReminderService.swift */; };
 		E2AFB0DB1ED1F7638AD973BD /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 658BA1569DB9A422B6CC927F /* PrivacyInfo.xcprivacy */; };
 		E3A298F836E49DC65D6CE076 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A74178DE69F6ECA5428FF06 /* AnalyticsView.swift */; };
 		ECF4702AC5C70827179EAE7A /* StudentAssignmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18AA78E368D44DAA91109EE /* StudentAssignmentsView.swift */; };
@@ -97,8 +98,8 @@
 		6DA1B6EE4620D76E73DC6165 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		74E3726D1AC1E43C30C5FEBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		76BCD237F05A32C7BF6A540C /* Graft.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Graft.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7749023E57801F0295E750CC /* ReminderService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
 		7A0CC460F6349AE55BB08AD9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		875DCFCD0E905AB44CB372A0 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8F98B402F7A5843787D06A0D /* GraftR12R20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraftR12R20.swift; sourceTree = "<group>"; };
 		92DEA87853D03ED17470E265 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		99CCACB4402351609BCDD8F7 /* GraftWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = GraftWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +113,6 @@
 		BE204247B542B5AF0D0D1E7B /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
 		BE5E7FE7E676A173AB8CADBA /* PracticeTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeTimerView.swift; sourceTree = "<group>"; };
 		C18AA78E368D44DAA91109EE /* StudentAssignmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAssignmentsView.swift; sourceTree = "<group>"; };
-		CE386B596196FEE90C76F07D /* SessionHistoryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SessionHistoryView.swift; sourceTree = "<group>"; };
 		D25E0B9A8E82D7128C27547C /* GraftWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraftWidget.swift; sourceTree = "<group>"; };
 		D3C18373403F86105BE97B7F /* APPSTORE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = APPSTORE.md; sourceTree = "<group>"; };
 		D940D0A29789AEBB1D4CF6E4 /* TeacherModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherModels.swift; sourceTree = "<group>"; };
@@ -123,7 +123,9 @@
 		EA9E0AF8989DF2FBFC868634 /* GraftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraftApp.swift; sourceTree = "<group>"; };
 		F1D9BB23532F7695D624D777 /* ErrorStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStates.swift; sourceTree = "<group>"; };
 		F4C3063F291F20ED32746BE0 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		F68A35285B72A8D0EB3537A1 /* ReminderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
 		FA2BD3A3A19AFF35C47D0CC7 /* WidgetDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataManager.swift; sourceTree = "<group>"; };
+		FEDF2B0508F45AB414CBFCBA /* SessionHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,13 +177,13 @@
 				DC91F1E1D442A158A73223CB /* PracticePlanView.swift */,
 				BE5E7FE7E676A173AB8CADBA /* PracticeTimerView.swift */,
 				28F9466E5F85C2C6F315C34F /* PricingView.swift */,
+				FEDF2B0508F45AB414CBFCBA /* SessionHistoryView.swift */,
 				9F92832146A45B5B03BE99FA /* SettingsView.swift */,
 				E3A3095FB159F8E2F2A8DAF6 /* SkillManagementView.swift */,
 				E51CCB548F5F98CE257B2F3D /* SkillPickerSheet.swift */,
 				C18AA78E368D44DAA91109EE /* StudentAssignmentsView.swift */,
 				9B5B59D7F939DDE7DB0A4812 /* TeacherView.swift */,
 				A1D01801FF11C715C2FA4422 /* WeekDotsView.swift */,
-				CE386B596196FEE90C76F07D /* SessionHistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -282,9 +284,9 @@
 				4D44B8E07469799D53DC956B /* DatabaseService.swift */,
 				BE204247B542B5AF0D0D1E7B /* ExportService.swift */,
 				A3C7B959BDBCE75BE7809DA0 /* GraftR12R20Service.swift */,
+				F68A35285B72A8D0EB3537A1 /* ReminderService.swift */,
 				5B04C830DAE1588BD431F3FC /* SocialService.swift */,
 				FA2BD3A3A19AFF35C47D0CC7 /* WidgetDataManager.swift */,
-				7749023E57801F0295E750CC /* ReminderService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -293,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				B4B646D2ABC680050833F904 /* Colors.swift */,
+				875DCFCD0E905AB44CB372A0 /* Theme.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -390,7 +393,6 @@
 			packageReferences = (
 				41ADFC98E908C2E31845FABA /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
-			productRefGroup = 4EFAF209E6690A3AE031AD47 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -440,7 +442,9 @@
 				5751D5318DE2C2D8AD76511F /* PracticePlanView.swift in Sources */,
 				F9781A1F78D2103D819E0D09 /* PracticeTimerView.swift in Sources */,
 				8D4C179D1D74821C6442C353 /* PricingView.swift in Sources */,
+				A9BE2E8FAE9E5D7453CCD2D0 /* ReminderService.swift in Sources */,
 				54C3E49CC1071650875476A3 /* Session.swift in Sources */,
+				C10BC76DDECA18B778B8B175 /* SessionHistoryView.swift in Sources */,
 				6F5A686BECD425A88948024D /* SettingsView.swift in Sources */,
 				C752645C7D4D6B7509D58A99 /* Skill.swift in Sources */,
 				5FDCBD4FFF73E6F046F4EB6C /* SkillManagementView.swift in Sources */,
@@ -449,10 +453,9 @@
 				ECF4702AC5C70827179EAE7A /* StudentAssignmentsView.swift in Sources */,
 				50886F5E611C625154DDF0A2 /* TeacherModels.swift in Sources */,
 				CA375B205C4A945914B39D1C /* TeacherView.swift in Sources */,
+				BB35F2BF73C326209917B92D /* Theme.swift in Sources */,
 				F37E27E4223B8AE325FBF686 /* WeekDotsView.swift in Sources */,
 				9F6542A12D1B5DAC0A6D8DF7 /* WidgetDataManager.swift in Sources */,
-				E21761CF5B713A0254AF3CAC /* ReminderService.swift in Sources */,
-				7AE8F17B72B144D8CA6814BE /* SessionHistoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,11 +579,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Graft Widget";
 				INFOPLIST_KEY_NSExtension = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.graft.app.widget;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -641,11 +640,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Graft Widget";
 				INFOPLIST_KEY_NSExtension = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.graft.app.widget;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

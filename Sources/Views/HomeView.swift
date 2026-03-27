@@ -56,68 +56,84 @@ struct HomeView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack(spacing: 16) {
                         Button {
+                            HapticFeedback.light()
                             showPracticeTimer = true
                         } label: {
                             Image(systemName: "timer")
-                                .font(.system(size: 14))
+                                .font(.system(size: Theme.IconSize.medium))
                                 .foregroundColor(GraftColors.accent)
                         }
+                        .accessibilityLabel("Practice Timer")
 
                         Button {
+                            HapticFeedback.light()
                             showAnalytics = true
                         } label: {
                             Image(systemName: "chart.line.uptrend.xyaxis")
-                                .font(.system(size: 14))
+                                .font(.system(size: Theme.IconSize.medium))
                                 .foregroundColor(GraftColors.accent)
                         }
+                        .accessibilityLabel("Analytics")
 
                         Button {
+                            HapticFeedback.light()
                             showPracticePlan = true
                         } label: {
                             Image(systemName: "calendar")
-                                .font(.system(size: 14))
+                                .font(.system(size: Theme.IconSize.medium))
                                 .foregroundColor(GraftColors.accent)
                         }
+                        .accessibilityLabel("Practice Plan")
 
                         Button {
+                            HapticFeedback.light()
                             showPricing = true
                         } label: {
                             Image(systemName: "crown.fill")
-                                .font(.system(size: 14))
+                                .font(.system(size: Theme.IconSize.medium))
                                 .foregroundColor(GraftColors.accent)
                         }
+                        .accessibilityLabel("Pricing and Subscription")
 
                         Button {
+                            HapticFeedback.light()
                             showTeacher = true
                         } label: {
                             Image(systemName: "person.2.fill")
-                                .font(.system(size: 14))
+                                .font(.system(size: Theme.IconSize.medium))
                                 .foregroundColor(GraftColors.accent)
                         }
+                        .accessibilityLabel("Teacher View")
 
                         Button {
+                            HapticFeedback.light()
                             showStudentAssignments = true
                         } label: {
                             Image(systemName: "list.bullet.clipboard")
-                                .font(.system(size: 14))
+                                .font(.system(size: Theme.IconSize.medium))
                                 .foregroundColor(GraftColors.accent)
                         }
+                        .accessibilityLabel("Student Assignments")
 
                         Button {
+                            HapticFeedback.light()
                             showSettings = true
                         } label: {
                             Image(systemName: "gearshape")
-                                .font(.system(size: 14))
+                                .font(.system(size: Theme.IconSize.medium))
                                 .foregroundColor(GraftColors.accent)
                         }
+                        .accessibilityLabel("Settings")
 
                         Button {
+                            HapticFeedback.light()
                             showSessionHistory = true
                         } label: {
                             Image(systemName: "clock.arrow.circlepath")
-                                .font(.system(size: 14))
+                                .font(.system(size: Theme.IconSize.medium))
                                 .foregroundColor(GraftColors.accent)
                         }
+                        .accessibilityLabel("Session History")
                     }
                 }
             }
@@ -219,21 +235,22 @@ struct HomeView: View {
 
     private var skillTabsSection: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 10) {
+            HStack(spacing: Theme.Spacing.sm) {
                 ForEach(skills) { skill in
                     Button {
+                        HapticFeedback.selection()
                         primarySkill = skill
                         loadSkillData()
                     } label: {
                         HStack(spacing: 6) {
                             Text(skill.emoji)
-                                .font(.system(size: 14))
+                                .font(.system(size: Theme.FontSize.footnote))
                             Text(skill.name)
-                                .font(.system(size: 13, weight: .medium))
+                                .font(.system(size: Theme.FontSize.footnote, weight: .medium))
                         }
                         .foregroundColor(primarySkill?.id == skill.id ? .white : GraftColors.textSecondary)
-                        .padding(.horizontal, 14)
-                        .padding(.vertical, 8)
+                        .padding(.horizontal, Theme.Spacing.lg)
+                        .padding(.vertical, Theme.Spacing.xs)
                         .background(
                             primarySkill?.id == skill.id
                                 ? LinearGradient(colors: [GraftColors.accent, GraftColors.accentMuted], startPoint: .leading, endPoint: .trailing)
@@ -241,6 +258,7 @@ struct HomeView: View {
                         )
                         .clipShape(Capsule())
                     }
+                    .accessibilityLabel("\(skill.emoji) \(skill.name)")
                 }
             }
         }
@@ -428,20 +446,24 @@ struct HomeView: View {
     }
 
     private func quickActionButton(icon: String, label: String, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
+        Button {
+            HapticFeedback.light()
+            action()
+        } label: {
             VStack(spacing: 6) {
                 Image(systemName: icon)
-                    .font(.system(size: 18))
+                    .font(.system(size: Theme.IconSize.large))
                     .foregroundColor(GraftColors.accent)
                 Text(label)
-                    .font(.system(size: 10, weight: .medium))
+                    .font(.system(size: Theme.FontSize.caption2, weight: .medium))
                     .foregroundColor(GraftColors.textSecondary)
             }
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 14)
+            .padding(.vertical, Theme.Spacing.xl)
             .background(GraftColors.surface)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .clipShape(RoundedRectangle(cornerRadius: Theme.CornerRadius.medium))
         }
+        .accessibilityLabel(label)
     }
 
     // MARK: - Skill Comparison Preview
@@ -551,16 +573,16 @@ struct SkillComparisonPreview: View {
     let skills: [Skill]
 
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: Theme.Spacing.sm) {
             ForEach(skills.prefix(5)) { skill in
                 let weekly = getWeeklyMinutes(for: skill)
-                HStack(spacing: 10) {
+                HStack(spacing: Theme.Spacing.sm) {
                     Text(skill.emoji)
-                        .font(.system(size: 14))
+                        .font(.system(size: Theme.FontSize.footnote))
                         .frame(width: 20)
 
                     Text(skill.name)
-                        .font(.system(size: 12, weight: .medium))
+                        .font(.system(size: Theme.FontSize.caption, weight: .medium))
                         .foregroundColor(GraftColors.textPrimary)
                         .frame(width: 70, alignment: .leading)
 
@@ -568,7 +590,7 @@ struct SkillComparisonPreview: View {
                         let maxMinutes: CGFloat = 300
                         let barWidth = CGFloat(weekly) / maxMinutes * geometry.size.width
 
-                        RoundedRectangle(cornerRadius: 3)
+                        RoundedRectangle(cornerRadius: Theme.CornerRadius.xs)
                             .fill(
                                 LinearGradient(
                                     colors: [GraftColors.accent.opacity(0.6), GraftColors.accentMuted.opacity(0.6)],
@@ -581,7 +603,7 @@ struct SkillComparisonPreview: View {
                     .frame(height: 10)
 
                     Text(formatMinutes(weekly))
-                        .font(.system(size: 10, design: .monospaced))
+                        .font(.system(size: Theme.FontSize.caption2, design: .monospaced))
                         .foregroundColor(GraftColors.textSecondary)
                         .frame(width: 35, alignment: .trailing)
                 }

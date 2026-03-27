@@ -161,18 +161,19 @@ struct SettingsView: View {
 
     private var reminderToggleRow: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: Theme.Spacing.xxs) {
                 Text("Daily Reminder")
-                    .font(.system(size: 15))
+                    .font(.system(size: Theme.FontSize.subheadline))
                     .foregroundColor(GraftColors.textPrimary)
                 Text("Get notified when it's time to practice")
-                    .font(.system(size: 12))
+                    .font(.system(size: Theme.FontSize.caption))
                     .foregroundColor(GraftColors.textSecondary)
             }
             Spacer()
             Toggle("", isOn: $reminderEnabled)
                 .tint(GraftColors.accent)
                 .onChange(of: reminderEnabled) { _, newValue in
+                    HapticFeedback.selection()
                     Task {
                         await toggleReminder(enabled: newValue)
                     }
@@ -184,23 +185,24 @@ struct SettingsView: View {
 
     private var reminderTimeRow: some View {
         Button {
+            HapticFeedback.light()
             showTimePicker = true
         } label: {
             HStack {
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: Theme.Spacing.xxs) {
                     Text("Reminder Time")
-                        .font(.system(size: 15))
+                        .font(.system(size: Theme.FontSize.subheadline))
                         .foregroundColor(GraftColors.textPrimary)
                     Text("We'll send you a notification at this time")
-                        .font(.system(size: 12))
+                        .font(.system(size: Theme.FontSize.caption))
                         .foregroundColor(GraftColors.textSecondary)
                 }
                 Spacer()
                 Text(formattedReminderTime)
-                    .font(.system(size: 15, weight: .medium, design: .monospaced))
+                    .font(.system(size: Theme.FontSize.subheadline, weight: .medium, design: .monospaced))
                     .foregroundColor(GraftColors.accent)
                 Image(systemName: "chevron.right")
-                    .font(.system(size: 12))
+                    .font(.system(size: Theme.FontSize.caption))
                     .foregroundColor(GraftColors.textSecondary.opacity(0.5))
             }
         }
@@ -209,33 +211,35 @@ struct SettingsView: View {
 
     private var aiSuggestionRow: some View {
         Button {
+            HapticFeedback.medium()
             Task {
                 await applyAISuggestedTime()
             }
         } label: {
             HStack {
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: Theme.Spacing.xxs) {
                     Text("Use AI Suggestion")
-                        .font(.system(size: 15))
+                        .font(.system(size: Theme.FontSize.subheadline))
                         .foregroundColor(GraftColors.textPrimary)
                     if let skill = primarySkill {
                         Text("Set to optimal time for \(skill.name) (\(aiSuggestedTimeString))")
-                            .font(.system(size: 12))
+                            .font(.system(size: Theme.FontSize.caption))
                             .foregroundColor(GraftColors.textSecondary)
                     } else {
                         Text("Based on your practice patterns")
-                            .font(.system(size: 12))
+                            .font(.system(size: Theme.FontSize.caption))
                             .foregroundColor(GraftColors.textSecondary)
                     }
                 }
                 Spacer()
                 Image(systemName: "sparkles")
-                    .font(.system(size: 14))
+                    .font(.system(size: Theme.IconSize.medium))
                     .foregroundColor(GraftColors.accent)
             }
         }
         .disabled(primarySkill == nil)
         .opacity(primarySkill == nil ? 0.5 : 1.0)
+        .accessibilityLabel("Use AI suggested reminder time")
     }
 
     private var notificationStatusRow: some View {

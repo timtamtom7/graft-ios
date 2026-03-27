@@ -242,12 +242,14 @@ struct ConnectionCard: View {
                             .foregroundColor(GraftColors.accent)
                         Spacer()
                         Button {
+                            HapticFeedback.light()
                             onCopyCode()
                         } label: {
                             Image(systemName: "doc.on.doc")
-                                .font(.system(size: 11))
+                                .font(.system(size: Theme.FontSize.caption2))
                                 .foregroundColor(GraftColors.accent)
                         }
+                        .accessibilityLabel("Copy student code")
                     }
                     .padding(.horizontal, 16)
 
@@ -256,16 +258,18 @@ struct ConnectionCard: View {
                     }
 
                     Button {
+                        HapticFeedback.light()
                         onSelect()
                     } label: {
                         HStack {
                             Image(systemName: "plus.circle.fill")
                             Text("New Assignment")
                         }
-                        .font(.system(size: 13, weight: .medium))
+                        .font(.system(size: Theme.FontSize.footnote, weight: .medium))
                         .foregroundColor(GraftColors.accent)
                     }
-                    .padding(.vertical, 8)
+                    .padding(.vertical, Theme.Spacing.xs)
+                    .accessibilityLabel("Create new assignment")
                 }
                 .padding(.bottom, 12)
                 .background(GraftColors.surface)

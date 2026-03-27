@@ -23,7 +23,7 @@ struct WeekDotsView: View {
                         )
 
                     Text(dayLabel(for: session.date))
-                        .font(.system(size: 10, weight: .medium))
+                        .font(.system(size: Theme.FontSize.caption2, weight: .medium))
                         .foregroundColor(GraftColors.textSecondary)
                 }
             }

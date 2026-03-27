@@ -125,6 +125,7 @@ struct LogSessionSheet: View {
 
     private func feelDot(rating: Int) -> some View {
         Button {
+            HapticFeedback.selection()
             feelRating = rating
         } label: {
             Circle()
@@ -138,6 +139,18 @@ struct LogSessionSheet: View {
                         )
                 )
                 .shadow(color: rating <= feelRating ? GraftColors.accent.opacity(0.4) : .clear, radius: 8)
+        }
+        .accessibilityLabel("Feel rating \(rating) out of 5, \(feelRatingDescription(for: rating))")
+    }
+
+    private func feelRatingDescription(for rating: Int) -> String {
+        switch rating {
+        case 1: return "rough start"
+        case 2: return "getting there"
+        case 3: return "solid session"
+        case 4: return "really good"
+        case 5: return "flowing"
+        default: return ""
         }
     }
 
@@ -200,6 +213,7 @@ struct LogSessionSheet: View {
     private func saveSession() {
         guard totalMinutes > 0 else { return }
         isSaving = true
+        HapticFeedback.success()
 
         var session = Session(
             skillId: skillId,
@@ -219,6 +233,7 @@ struct LogSessionSheet: View {
             onSave()
             dismiss()
         } else {
+            HapticFeedback.error()
             isSaving = false
             onError?("Could not save your session. Please try again.")
         }

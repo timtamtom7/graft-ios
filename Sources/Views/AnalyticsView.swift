@@ -338,7 +338,7 @@ struct TrendLineChart: View {
                         let barHeight = max(CGFloat(item.totalMinutes) / CGFloat(maxMinutes) * height, 2)
 
                         VStack(spacing: 2) {
-                            RoundedRectangle(cornerRadius: 3)
+                            RoundedRectangle(cornerRadius: Theme.CornerRadius.xs)
                                 .fill(
                                     LinearGradient(
                                         colors: [GraftColors.accent, GraftColors.accentMuted],
@@ -349,7 +349,7 @@ struct TrendLineChart: View {
                                 .frame(width: max((width - 32) / CGFloat(max(data.count, 1)) - 4, 4), height: barHeight)
 
                             Text(weekLabel(for: item.weekStart))
-                                .font(.system(size: 8))
+                                .font(.system(size: Theme.FontSize.caption2))
                                 .foregroundColor(GraftColors.textSecondary.opacity(0.6))
                         }
                     }
@@ -394,7 +394,7 @@ struct SkillComparisonChart: View {
                         GeometryReader { geometry in
                             let barWidth = CGFloat(skill.totalMinutes) / CGFloat(maxMinutes) * geometry.size.width
 
-                            RoundedRectangle(cornerRadius: 4)
+                            RoundedRectangle(cornerRadius: Theme.CornerRadius.small)
                                 .fill(
                                     LinearGradient(
                                         colors: [GraftColors.accent, GraftColors.accentMuted],
@@ -407,7 +407,7 @@ struct SkillComparisonChart: View {
                         .frame(height: 16)
 
                         Text(skill.formattedTime)
-                            .font(.system(size: 11, design: .monospaced))
+                            .font(.system(size: Theme.FontSize.caption2, design: .monospaced))
                             .foregroundColor(GraftColors.textSecondary)
                             .frame(width: 40, alignment: .trailing)
                     }

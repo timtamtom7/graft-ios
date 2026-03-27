@@ -10,10 +10,10 @@ struct LiquidGlassCard<Content: View>: View {
     var body: some View {
         content
             .background(
-                RoundedRectangle(cornerRadius: 20)
+                RoundedRectangle(cornerRadius: Theme.CornerRadius.xl)
                     .fill(.ultraThinMaterial)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 20)
+                        RoundedRectangle(cornerRadius: Theme.CornerRadius.xl)
                             .fill(
                                 LinearGradient(
                                     colors: [
@@ -27,7 +27,7 @@ struct LiquidGlassCard<Content: View>: View {
                             )
                     )
                     .overlay(
-                        RoundedRectangle(cornerRadius: 20)
+                        RoundedRectangle(cornerRadius: Theme.CornerRadius.xl)
                             .strokeBorder(
                                 LinearGradient(
                                     colors: [
@@ -42,6 +42,6 @@ struct LiquidGlassCard<Content: View>: View {
                             )
                     )
             )
-            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .clipShape(RoundedRectangle(cornerRadius: Theme.CornerRadius.xl))
     }
 }

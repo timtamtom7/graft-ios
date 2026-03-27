@@ -258,6 +258,7 @@ struct SessionHistoryView: View {
         .buttonStyle(.plain)
         .contextMenu {
             Button {
+                HapticFeedback.light()
                 sessionToEdit = item
                 showEditSheet = true
             } label: {
@@ -265,6 +266,7 @@ struct SessionHistoryView: View {
             }
 
             Button(role: .destructive) {
+                HapticFeedback.warning()
                 sessionToDelete = item
                 showDeleteConfirmation = true
             } label: {
@@ -273,6 +275,7 @@ struct SessionHistoryView: View {
         }
         .swipeActions(edge: .trailing, allowsFullSwipe: false) {
             Button(role: .destructive) {
+                HapticFeedback.warning()
                 sessionToDelete = item
                 showDeleteConfirmation = true
             } label: {
@@ -280,6 +283,7 @@ struct SessionHistoryView: View {
             }
 
             Button {
+                HapticFeedback.light()
                 sessionToEdit = item
                 showEditSheet = true
             } label: {
