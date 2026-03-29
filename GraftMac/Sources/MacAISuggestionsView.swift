@@ -157,7 +157,7 @@ struct MacAISuggestionsView: View {
         HStack(spacing: 12) {
             Image(systemName: "flame.fill")
                 .font(.system(size: 16))
-                .foregroundColor(.orange)
+                .foregroundColor(GraftColors.streakOrange)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text("Streak at Risk!")
@@ -173,11 +173,11 @@ struct MacAISuggestionsView: View {
         .padding(14)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color.orange.opacity(0.12))
+                .fill(GraftColors.streakOrange.opacity(0.12))
         )
         .overlay(
             RoundedRectangle(cornerRadius: 12)
-                .stroke(Color.orange.opacity(0.3), lineWidth: 1)
+                .stroke(GraftColors.streakOrange.opacity(0.3), lineWidth: 1)
         )
     }
 

@@ -40,15 +40,15 @@ struct MacSkillDetailView: View {
         HStack(spacing: 10) {
             Image(systemName: "waveform.path.ecg")
                 .font(.system(size: 16, weight: .semibold))
-                .foregroundColor(.white)
+                .foregroundColor(GraftColors.textOnAccent)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text("Flow State Achieved")
                     .font(.system(size: 13, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(GraftColors.textOnAccent)
                 Text("You hit deep focus — >45 min, no interruptions, followed routine.")
                     .font(.system(size: 11))
-                    .foregroundColor(.white.opacity(0.85))
+                    .foregroundColor(GraftColors.textOnAccent.opacity(0.85))
             }
 
             Spacer()
@@ -56,7 +56,7 @@ struct MacSkillDetailView: View {
         .padding(14)
         .background(
             LinearGradient(
-                colors: [Color(hex: "7C3AED"), Color(hex: "4F46E5")],
+                colors: [GraftColors.flowStateGradientStart, GraftColors.flowStateGradientEnd],
                 startPoint: .leading,
                 endPoint: .trailing
             )
@@ -87,7 +87,7 @@ struct MacSkillDetailView: View {
             } label: {
                 Label("Log Session", systemImage: "plus.circle.fill")
                     .font(.headline)
-                    .foregroundColor(.white)
+                    .foregroundColor(GraftColors.textOnAccent)
                     .padding(.horizontal, 20)
                     .padding(.vertical, 12)
                     .background(GraftColors.accent)
@@ -132,7 +132,7 @@ struct MacSkillDetailView: View {
                 unit: "days",
                 label: "Current Streak",
                 icon: "flame.fill",
-                color: .orange
+                color: GraftColors.streakOrange
             )
         }
     }
@@ -377,6 +377,8 @@ struct MacSessionRow: View {
             }
         }
         .padding(.vertical, 10)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Session on \(formattedDate), \(session.formattedDuration), feel rating \(session.feelRating) out of 5" + (session.notes.map { ", notes: \($0)" } ?? ""))
     }
 
     private var formattedDate: String {
@@ -418,5 +420,7 @@ struct MacStatCard: View {
         .padding(16)
         .background(GraftColors.surface)
         .clipShape(RoundedRectangle(cornerRadius: 12))
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(label): \(value) \(unit)")
     }
 }

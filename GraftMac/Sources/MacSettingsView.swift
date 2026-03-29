@@ -240,7 +240,7 @@ struct MacSettingsView: View {
                 } label: {
                     Text("Add Skill")
                         .font(.headline)
-                        .foregroundColor(.white)
+                        .foregroundColor(GraftColors.textOnAccent)
                         .frame(maxWidth: .infinity)
                         .frame(height: 40)
                 }
@@ -297,7 +297,7 @@ struct MacSettingsView: View {
             } label: {
                 Text("Copy to Clipboard")
                     .font(.subheadline)
-                    .foregroundColor(.white)
+                    .foregroundColor(GraftColors.textOnAccent)
                     .frame(maxWidth: .infinity)
                     .frame(height: 36)
             }

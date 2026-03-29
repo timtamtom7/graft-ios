@@ -62,7 +62,7 @@ struct MacLogSessionSheet: View {
                     } else {
                         Text("Save Session")
                             .font(.headline)
-                            .foregroundColor(.white)
+                            .foregroundColor(GraftColors.textOnAccent)
                             .frame(width: 140, height: 36)
                     }
                 }

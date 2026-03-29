@@ -267,9 +267,9 @@ struct LeaderboardRowView: View {
 
     private var rankColor: Color {
         switch entry.rank {
-        case 1: return Color(hex: "ffd700")
-        case 2: return Color(hex: "c0c0c0")
-        case 3: return Color(hex: "cd7f32")
+        case 1: return GraftColors.gold
+        case 2: return GraftColors.silver
+        case 3: return GraftColors.bronze
         default: return GraftColors.textSecondary
         }
     }
@@ -284,8 +284,8 @@ struct LeaderboardRowView: View {
 
     private var trendColor: Color {
         switch entry.trend {
-        case .up: return GraftColors.success
-        case .down: return Color(hex: "f87171")
+        case .up: return GraftColors.upTrend
+        case .down: return GraftColors.downTrend
         case .same: return GraftColors.textSecondary
         }
     }
@@ -315,7 +315,7 @@ struct StatusBadge: View {
         case .active: return GraftColors.success
         case .upcoming: return GraftColors.accent
         case .completed: return GraftColors.textSecondary
-        case .cancelled: return Color(hex: "f87171")
+        case .cancelled: return GraftColors.downTrend
         }
     }
 

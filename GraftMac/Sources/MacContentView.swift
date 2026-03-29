@@ -19,6 +19,36 @@ struct MacContentView: View {
         }
         .frame(minWidth: 900, minHeight: 620)
         .background(GraftColors.background)
+        .toolbar {
+            ToolbarItemGroup(placement: .primaryAction) {
+                Button {
+                    showLogSession = true
+                } label: {
+                    Label("Log Session", systemImage: "plus.circle.fill")
+                }
+                .keyboardShortcut("l", modifiers: .command)
+                .accessibilityLabel("Log Session")
+                .accessibilityHint("Opens a sheet to log a new practice session")
+
+                Button {
+                    showSettings = true
+                } label: {
+                    Label("Settings", systemImage: "gear")
+                }
+                .keyboardShortcut(",", modifiers: .command)
+                .accessibilityLabel("Settings")
+                .accessibilityHint("Open app settings")
+
+                Button {
+                    showMonthStats = true
+                } label: {
+                    Label("Monthly Stats", systemImage: "calendar")
+                }
+                .keyboardShortcut("m", modifiers: .command)
+                .accessibilityLabel("Monthly Stats")
+                .accessibilityHint("View your monthly practice statistics")
+            }
+        }
         .task {
             viewModel.loadSkills()
             selectedSkillId = viewModel.activeSkill?.id
@@ -67,6 +97,7 @@ struct MacContentView: View {
                             Text(skill.emoji)
                                 .font(.title3)
                             Text(skill.name)
+                                .font(.body)
                                 .foregroundColor(GraftColors.textPrimary)
                             Spacer()
                             if skill.id == viewModel.activeSkill?.id {
@@ -80,6 +111,9 @@ struct MacContentView: View {
                         .onTapGesture {
                             selectedSkillId = skill.id
                         }
+                        .accessibilityElement(children: .combine)
+                        .accessibilityLabel("\(skill.emoji) \(skill.name)" + (skill.id == viewModel.activeSkill?.id ? ", active skill" : ""))
+                        .accessibilityAddTraits(.isButton)
                         .listRowBackground(
                             selectedSkillId == skill.id
                                 ? GraftColors.surfaceRaised
@@ -131,7 +165,7 @@ struct MacContentView: View {
             // Streak footer
             HStack(spacing: 8) {
                 Image(systemName: "flame.fill")
-                    .foregroundColor(.orange)
+                    .foregroundColor(GraftColors.streakOrange)
                 Text("\(viewModel.currentStreak) day streak")
                     .font(.caption)
                     .foregroundColor(GraftColors.textSecondary)

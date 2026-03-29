@@ -12,6 +12,7 @@
 		08D3A9FB91FC459B42B4A83F /* AchievementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403B181BD2325CBD66263839 /* AchievementService.swift */; };
 		0DC52BB4B1EE18AE829A7677 /* MacMonthStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF3247D9627E1E1F6CF58F3 /* MacMonthStatsView.swift */; };
 		11CE6893C33CF8EC10D92555 /* AccountabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BFD2235C24862EC0DCF6C /* AccountabilityService.swift */; };
+		142F2B0F594DBECA7FDA82E4 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4C4E18FFADECB6D7B9F6B /* OnboardingView.swift */; };
 		1B3030B00FE3C43F6025907E /* WidgetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BD3A3A19AFF35C47D0CC7 /* WidgetDataManager.swift */; };
 		1ED7E708B7D1D90D619E44B3 /* AIInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525EC49625EE46D24A6A05AD /* AIInsightsView.swift */; };
 		27C8E9392A6309A9C1AC1EA3 /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DAC5A423B74AB917EE717 /* ExportView.swift */; };
@@ -149,6 +150,7 @@
 		D3C18373403F86105BE97B7F /* APPSTORE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = APPSTORE.md; sourceTree = "<group>"; };
 		D3FFFC2FDF28DDEA24992B9A /* MacSkillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSkillDetailView.swift; sourceTree = "<group>"; };
 		D5AE203DB91885B4C5238831 /* MacContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacContentView.swift; sourceTree = "<group>"; };
+		D6F4C4E18FFADECB6D7B9F6B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		D87A331CC7F1DFCA13114297 /* MacAISuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacAISuggestionsView.swift; sourceTree = "<group>"; };
 		D940D0A29789AEBB1D4CF6E4 /* TeacherModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherModels.swift; sourceTree = "<group>"; };
 		DC91F1E1D442A158A73223CB /* PracticePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticePlanView.swift; sourceTree = "<group>"; };
@@ -241,7 +243,6 @@
 			children = (
 				06AA13D141D35FC745F14C53 /* Graft.entitlements */,
 				658BA1569DB9A422B6CC927F /* PrivacyInfo.xcprivacy */,
-				964FEB5CED5FFB86A7BC3C0D /* Services */,
 			);
 			path = Graft;
 			sourceTree = "<group>";
@@ -286,6 +287,7 @@
 				E1821E219634207D47A71B9A /* MacSettingsView.swift */,
 				39E9D95F4DE817F502B52567 /* MacSharedStreaksView.swift */,
 				D3FFFC2FDF28DDEA24992B9A /* MacSkillDetailView.swift */,
+				D6F4C4E18FFADECB6D7B9F6B /* OnboardingView.swift */,
 				B460B36835DBBB8E3D7D63F2 /* SubscriptionTier.swift */,
 			);
 			name = Sources;
@@ -299,13 +301,6 @@
 				2DEB4EF0C6487B4D23C50A2C /* AppStore */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		964FEB5CED5FFB86A7BC3C0D /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		A58D0C2130FECA3DC4C13536 /* Models */ = {
@@ -542,6 +537,7 @@
 				3D0B172C9965A5143ADB8D65 /* MacSettingsView.swift in Sources */,
 				C60165BE9A769101148538A7 /* MacSharedStreaksView.swift in Sources */,
 				CE3882D1834457B42B39F213 /* MacSkillDetailView.swift in Sources */,
+				142F2B0F594DBECA7FDA82E4 /* OnboardingView.swift in Sources */,
 				0891FEE9AE8D2A52EA06B376 /* PracticeModels.swift in Sources */,
 				3BDC758FABD3AF666FFB4EFD /* ReminderService.swift in Sources */,
 				E58341505F6B85956308884D /* Session.swift in Sources */,

@@ -113,7 +113,7 @@ struct PartnerStreakCard: View {
                     .overlay(
                         Text(partner.name.prefix(1).uppercased())
                             .font(.system(size: 18, weight: .semibold))
-                            .foregroundColor(.white)
+                            .foregroundColor(GraftColors.textOnAccent)
                     )
 
                 VStack(alignment: .leading, spacing: 3) {
@@ -217,11 +217,11 @@ struct PartnerStreakCard: View {
 
     private var avatarColor: Color {
         switch partner.skill.lowercased() {
-        case "guitar": return Color(hex: "f97316")
-        case "piano": return Color(hex: "3b82f6")
-        case "coding": return Color(hex: "8b5cf6")
-        case "drums": return Color(hex: "ef4444")
-        case "vocals": return Color(hex: "ec4899")
+        case "guitar": return GraftColors.avatarGuitar
+        case "piano": return GraftColors.avatarPiano
+        case "coding": return GraftColors.avatarCoding
+        case "drums": return GraftColors.avatarDrums
+        case "vocals": return GraftColors.avatarVocals
         default: return GraftColors.accentMuted
         }
     }
