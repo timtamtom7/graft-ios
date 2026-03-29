@@ -51,6 +51,11 @@ final class AccountabilityService: ObservableObject, @unchecked Sendable {
 
     // MARK: - Partner Management
 
+    /// Simplified invite by email only (skill defaults to "General")
+    func invitePartner(email: String) async throws {
+        try await invitePartner(email: email, skill: "General")
+    }
+
     func invitePartner(email: String, skill: String) async throws {
         // Mock: simulate network call
         try await Task.sleep(nanoseconds: 500_000_000)
