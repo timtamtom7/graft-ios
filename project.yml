@@ -61,26 +61,27 @@ targets:
     platform: macOS
     sources:
       - path: GraftMac/Sources
-      - path: GraftMac/Resources
+      - path: Sources/Models
+      - path: Sources/Services
+        excludes:
+          - "ExportService.swift"
+      # Sources/Views intentionally excluded (UIKit/iOS-specific)
+      # SubscriptionTier stub lives in GraftMac/Sources/SubscriptionTier.swift
+      - path: Sources/Theme
+      - path: Resources
     settings:
       base:
-        INFOPLIST_FILE: GraftMac/Resources/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.graft.app.macos
+        PRODUCT_BUNDLE_IDENTIFIER: com.graft.macos
         MARKETING_VERSION: "1.0.0"
         CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: YES
         SWIFT_VERSION: "6.0"
-        TARGETED_DEVICE_FAMILY: "2"
-        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
-        DEVELOPMENT_TEAM: ""
-        CODE_SIGN_IDENTITY: ""
-        CODE_SIGNING_REQUIRED: "NO"
-        CODE_SIGNING_ALLOWED: "NO"
-        ENABLE_HARDENED_RUNTIME: "NO"
-        COMBINE_HIDPI_IMAGES: "YES"
         MACOSX_DEPLOYMENT_TARGET: "15.0"
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGNING_REQUIRED: NO
+        CODE_SIGNING_ALLOWED: NO
+        INFOPLIST_FILE: GraftMac/Resources/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        COMBINE_HIDPI_IMAGES: YES
     dependencies:
       - package: SQLite
-    entitlements:
-      path: GraftMac/Resources/GraftMac.entitlements
-      properties:
-        com.apple.security.app-sandbox: true

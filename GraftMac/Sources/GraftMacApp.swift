@@ -1,19 +1,16 @@
-import Cocoa
 import SwiftUI
 
 @main
 struct GraftMacApp: App {
     var body: some Scene {
         WindowGroup {
-            MacGraftView()
-                .frame(minWidth: 800, minHeight: 600)
-                .darkMode()
+            MacContentView()
+                .preferredColorScheme(.dark)
         }
-    }
-}
-
-extension View {
-    func darkMode() -> some View {
-        self.preferredColorScheme(.dark)
+        .windowStyle(.hiddenTitleBar)
+        .windowResizability(.contentSize)
+        .commands {
+            CommandGroup(replacing: .newItem) { }
+        }
     }
 }
