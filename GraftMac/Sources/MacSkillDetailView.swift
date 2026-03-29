@@ -16,6 +16,9 @@ struct MacSkillDetailView: View {
         ScrollView {
             VStack(spacing: 24) {
                 headerCard
+                if let _ = sessions.first(where: { $0.isFlowState }) {
+                    flowStateBadge
+                }
                 statsRow
                 weekChartCard
                 recentSessionsCard
@@ -29,6 +32,36 @@ struct MacSkillDetailView: View {
                 loadData()
             }
         }
+    }
+
+    // MARK: - Flow State Badge
+
+    private var flowStateBadge: some View {
+        HStack(spacing: 10) {
+            Image(systemName: "waveform.path.ecg")
+                .font(.system(size: 16, weight: .semibold))
+                .foregroundColor(.white)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Flow State Achieved")
+                    .font(.system(size: 13, weight: .bold))
+                    .foregroundColor(.white)
+                Text("You hit deep focus — >45 min, no interruptions, followed routine.")
+                    .font(.system(size: 11))
+                    .foregroundColor(.white.opacity(0.85))
+            }
+
+            Spacer()
+        }
+        .padding(14)
+        .background(
+            LinearGradient(
+                colors: [Color(hex: "7C3AED"), Color(hex: "4F46E5")],
+                startPoint: .leading,
+                endPoint: .trailing
+            )
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 
     // MARK: - Header Card
