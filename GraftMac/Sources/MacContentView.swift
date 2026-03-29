@@ -101,6 +101,8 @@ struct MacContentView: View {
                             .foregroundColor(GraftColors.textSecondary)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("Monthly Stats")
+                    .accessibilityHint("View your monthly practice statistics")
 
                     Button {
                         showSettings = true
@@ -109,6 +111,8 @@ struct MacContentView: View {
                             .foregroundColor(GraftColors.textSecondary)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("Settings")
+                    .accessibilityHint("Open app settings")
                 } header: {
                     Text("Tools")
                         .font(.caption)

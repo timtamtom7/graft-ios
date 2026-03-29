@@ -9,6 +9,7 @@ enum GraftColors {
     static let textPrimary = Color(hex: "f4f4f5")
     static let textSecondary = Color(hex: "a1a1aa")
     static let success = Color(hex: "4ade80")
+    static let amber = Color(hex: "f59e0b")
 }
 
 extension Color {

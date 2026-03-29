@@ -29,6 +29,8 @@ struct MacMonthStatsView: View {
                         .font(.title3)
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel("Close")
+                .accessibilityHint("Closes the monthly statistics view")
             }
             .padding(20)
             .background(GraftColors.surface)
@@ -70,6 +72,8 @@ struct MacMonthStatsView: View {
                     .clipShape(Circle())
             }
             .buttonStyle(.plain)
+            .accessibilityLabel("Previous Month")
+            .accessibilityHint("Navigate to the previous month")
 
             Spacer()
 
@@ -93,6 +97,8 @@ struct MacMonthStatsView: View {
             }
             .buttonStyle(.plain)
             .disabled(isCurrentMonth)
+            .accessibilityLabel("Next Month")
+            .accessibilityHint("Navigate to the next month")
         }
     }
 
@@ -193,14 +199,14 @@ struct MacMonthStatsView: View {
                 value: "\(totalSessions)",
                 unit: "sessions",
                 label: "Sessions",
-                color: Color(hex: "4ade80")
+                color: GraftColors.success
             )
             summaryItem(
                 icon: "chart.line.uptrend.xyaxis",
                 value: "\(consistencyScore)",
                 unit: "%",
                 label: "Consistency",
-                color: Color(hex: "f59e0b")
+                color: GraftColors.amber
             )
         }
     }

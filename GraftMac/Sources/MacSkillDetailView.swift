@@ -61,6 +61,8 @@ struct MacSkillDetailView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             .buttonStyle(.plain)
+            .accessibilityLabel("Log Session")
+            .accessibilityHint("Opens a sheet to log a new practice session")
         }
         .padding(24)
         .background(GraftColors.surface)
@@ -83,14 +85,14 @@ struct MacSkillDetailView: View {
                 unit: "days",
                 label: "Practice Days",
                 icon: "calendar",
-                color: Color(hex: "4ade80")
+                color: GraftColors.success
             )
             MacStatCard(
                 value: "\(sessions.count)",
                 unit: "sessions",
                 label: "Total Sessions",
                 icon: "checkmark.circle.fill",
-                color: Color(hex: "f59e0b")
+                color: GraftColors.amber
             )
             MacStatCard(
                 value: "\(currentStreak)",
@@ -135,6 +137,8 @@ struct MacSkillDetailView: View {
                 .font(.caption)
                 .foregroundColor(GraftColors.accent)
                 .buttonStyle(.plain)
+                .accessibilityLabel("View Month")
+                .accessibilityHint("Shows detailed monthly statistics")
             }
 
             if weeklyData.isEmpty {
@@ -211,6 +215,8 @@ struct MacSkillDetailView: View {
                     .font(.caption)
                     .foregroundColor(GraftColors.accent)
                     .buttonStyle(.plain)
+                    .accessibilityLabel("Log Your First Session")
+                    .accessibilityHint("Opens a sheet to log your first practice session")
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 32)
