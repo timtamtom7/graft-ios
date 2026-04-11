@@ -21,6 +21,8 @@ struct WeekDotsView: View {
                             Circle()
                                 .strokeBorder(isToday ? GraftColors.accent : Color.clear, lineWidth: 1.5)
                         )
+                        .accessibilityLabel("\(dayLabel(for: session.date)), \(session.totalMinutes > 0 ? "\(session.totalMinutes) minutes practiced" : "no practice")")
+                        .accessibilityAddTraits(session.totalMinutes > 0 ? .isSelected : [])
 
                     Text(dayLabel(for: session.date))
                         .font(.system(size: 10, weight: .medium))

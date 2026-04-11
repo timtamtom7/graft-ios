@@ -156,17 +156,19 @@ struct PracticeTimerView: View {
                     )
                     .frame(width: 240, height: 240)
                     .rotationEffect(.degrees(-90))
-                    .animation(.linear(duration: 1), value: progress)
+                    .animation(accessibilityReduceMotion ? nil : .linear(duration: 1), value: progress)
 
                 VStack(spacing: 8) {
                     if isRunning || elapsedSeconds > 0 {
                         Text(formattedTime)
                             .font(.system(size: 52, weight: .bold, design: .monospaced))
                             .foregroundColor(GraftColors.textPrimary)
+                            .dynamicTypeSize(.accessibility1 ... .accessibility4)
                     } else {
                         Text(formattedTime)
                             .font(.system(size: 52, weight: .bold, design: .monospaced))
                             .foregroundColor(GraftColors.textSecondary)
+                            .dynamicTypeSize(.accessibility1 ... .accessibility4)
                     }
 
                     if let skill = selectedSkill {

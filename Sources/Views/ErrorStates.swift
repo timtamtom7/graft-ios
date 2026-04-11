@@ -144,6 +144,7 @@ struct SessionErrorView: View {
                 Image(systemName: "exclamationmark.triangle.fill")
                     .font(.system(size: 36))
                     .foregroundColor(GraftColors.accent)
+                    .accessibilityLabel("Error")
             }
 
             VStack(spacing: 8) {
@@ -179,6 +180,7 @@ struct SessionErrorView: View {
                         )
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
+                .accessibilityLabel("Try again")
 
                 Button {
                     onDismiss()
@@ -417,6 +419,7 @@ struct StreakBadge: View {
             RoundedRectangle(cornerRadius: size.padding * 1.2)
                 .strokeBorder(strokeColor.opacity(0.4), lineWidth: 1)
         )
+        .accessibilityLabel("\(streakDays) day streak")
     }
 
     private var streakColor: Color {

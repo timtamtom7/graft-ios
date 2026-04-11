@@ -98,6 +98,6 @@ final class WidgetDataManager {
         }
 
         // Trigger widget refresh
-        WidgetCenter.shared.reloadTimelines(ofKind: "GraftWidget")
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }

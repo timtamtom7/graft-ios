@@ -77,6 +77,7 @@ struct SkillPickerSheet: View {
                 .background(GraftColors.surface)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .padding(.horizontal, 20)
+                .accessibilityLabel("Search skills")
                 .padding(.top, 8)
                 .padding(.bottom, 12)
 

@@ -423,7 +423,7 @@ struct ExportView: View {
             }
         }
 
-        let message = "🔥 I'm on a \(streak)-day practice streak for \(skillEmoji) \(skillName)! Keep grinding — tracked with Graft."
+        let message = "🔥 I'm on a \(streak)-day practice streak for \(skillEmoji) \(skillName)! Put in the work — tracked with Graft."
         shareItems = [message]
         showShareSheet = true
     }

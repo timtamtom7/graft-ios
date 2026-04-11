@@ -216,6 +216,6 @@ final class ReminderService {
             "Today is a new opportunity to grow.",
             "You don't have to be great to start, but you have to start to be great."
         ]
-        return messages.randomElement().map { String(format: $0, skillName) } ?? messages[0]
+        return messages.randomElement() ?? messages[0]
     }
 }
