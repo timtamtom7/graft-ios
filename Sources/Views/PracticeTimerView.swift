@@ -13,6 +13,7 @@ struct PracticeTimerView: View {
     @State private var showError: Bool = false
     @State private var errorMessage: String = ""
     @State private var showSessionLog: Bool = false
+    @Environment(\.accessibilityReduceMotion) private var accessibilityReduceMotion
     @State private var feelRating: Int = 3
 
     @Environment(\.dismiss) private var dismiss
